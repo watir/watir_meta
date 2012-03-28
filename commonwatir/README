@@ -1,0 +1,24 @@
+You're probably wondering why this directory is here. If a user does not have
+a previous release of watir in their local gem repository, it doesn't really
+matter. If, however, they have a previous watir installation then we could
+get into an issue that would prevent this code from running.
+
+When you require 'watir', ruby looks through each directory to see if a
+lib/watir.rb exists *independent* of the name of the gem. Watir is a pretty
+old project and at the point it was supporting firefox, safari and ie, a new
+gem was created to handle common code. This was the commonwatir gem and it had
+a lib/watir.rb which would load watir (not from the watir gem).
+
+So now we're moving to watir being the gem with the lib/watir.rb and we want to
+retain the ability to require 'watir'. If a user has an old watir build then
+ruby will find the older commonwatir first and run it from
+commonwatir/lib/watir.rb instead of the new location watir/lib/watir. That
+results in the older version of watir loading even though a newer gem is
+installed.
+
+To make sure this doesn't happen we release a new commonwatir gem with a higher
+version number so it gets picked up instead of the older version. The watir.rb
+in commonwatir just delegates to watir/loader.rb
+
+
+
