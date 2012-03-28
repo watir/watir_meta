@@ -12,7 +12,7 @@ a lib/watir.rb which would load watir (not from the watir gem).
 So now we're moving to watir being the gem with the lib/watir.rb and we want to
 retain the ability to require 'watir'. If a user has an old watir build then
 ruby will find the older commonwatir first and run it from
-commonwatir/lib/watir.rb instead of the new location watir/lib/watir. That
+commonwatir/lib/watir.rb instead of the new location watir/lib/watir.rb. That
 results in the older version of watir loading even though a newer gem is
 installed.
 
