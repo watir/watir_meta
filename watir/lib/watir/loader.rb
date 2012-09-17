@@ -22,8 +22,9 @@ module Watir
     def load_driver
       require "watir-#{driver}"
     rescue LoadError
-      puts "watir-#{driver} gem is missing. Install it with the following command:"
-      puts "  gem install watir-#{driver}"
+      warn "watir-#{driver} gem is missing. Install it with the following command:"
+      warn "  gem install watir-#{driver}"
+      exit 1
     end
 
     def driver
