@@ -15,7 +15,4 @@ Gem::Specification.new do |s|
   s.files = %x{git ls-files}.split("\n")
   s.require_paths = ["lib"]
   s.add_dependency "commonwatir", Watir::BUNDLE_VERSION
-
-  # bundled gems
-  s.add_dependency "watir-classic", '~> 3'
 end
