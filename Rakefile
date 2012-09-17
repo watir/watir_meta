@@ -15,13 +15,13 @@ end
 
 def execute_gem command
   Dir.chdir 'commonwatir' do
-    sh "gem #{command} commonwatir.gemspec"
+    sh "rake #{command}"
   end
   Dir.chdir 'watir' do
-    sh "gem #{command} watir.gemspec"
+    sh "rake #{command}"
   end
   mkdir_p "pkg" unless File.exist?("pkg")
-  gems = Dir['*/*.gem']
+  gems = Dir['**/*.gem']
   gems.each {|gem| FileUtils.mv gem, 'pkg'}
 end
 
