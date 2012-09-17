@@ -1,3 +1,5 @@
+require File.expand_path('version', File.dirname(__FILE__))
+
 module Watir
   class Browser
     class << self
