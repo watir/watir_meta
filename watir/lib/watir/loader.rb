@@ -15,7 +15,7 @@ module Watir
           singleton_class.send :remove_method, :new
         end
 
-        new browser, *args
+        new browser.nil? && Watir.driver == :webdriver ? :firefox : browser, *args
       end
     end
   end
