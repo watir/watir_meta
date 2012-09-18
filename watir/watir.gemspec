@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "watir"
   s.files = %x{git ls-files}.split("\n")
   s.require_paths = ["lib"]
-  s.add_dependency "commonwatir", "~>3"
+  s.add_dependency "commonwatir", "~>4"
 end
