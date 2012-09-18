@@ -5,7 +5,7 @@ require "watir/version"
 
 Gem::Specification.new do |s|
   s.name = "commonwatir"
-  s.version = Watir::BUNDLE_VERSION
+  s.version = "4.0.0"
   s.platform = Gem::Platform::RUBY
   s.authors = ["Bret Pettichord"]
   s.email = ["bret@pettichord.com"]
