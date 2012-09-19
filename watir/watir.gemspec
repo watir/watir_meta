@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
 
   if ENV["build_for_windows"]
     s.platform = Gem::Platform::MINGW
-    s.add_dependency "watir-classic", "~> 3.1"
+    s.add_dependency "watir-classic", "~> 3.2"
   end
 end
