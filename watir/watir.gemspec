@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+require "bundler"
 $:.push File.expand_path("../lib", __FILE__)
 require "watir/version"
 
@@ -15,4 +16,10 @@ Gem::Specification.new do |s|
   s.files = %x{git ls-files}.split("\n")
   s.require_paths = ["lib"]
   s.add_dependency "commonwatir", "~>4"
+  s.add_dependency "watir-webdriver"
+
+  if ENV["build_for_windows"]
+    s.platform = Gem::Platform::MINGW
+    s.add_dependency "watir-classic", "~> 3.1"
+  end
 end

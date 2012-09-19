@@ -1,36 +1,32 @@
 require 'rake/clean'
-CLEAN << FileList['pkg', '*.gem', 'commonwatir/*.gem', 'watir/*.gem']
+CLEAN << FileList['pkg', '*.gem', 'commonwatir/**/*.gem', 'watir/**/*.gem']
 
 task :default => :build
 
 desc "Build all the Watir gems"
 task :build => :clean do
-  execute_gem "build"
+  build_gems
 end
 
 desc "Release all the Watir gems"
-task :release => :clean do
-  execute_gem "push"
+task :release => :build do
+  release_gems
 end
 
-def execute_gem command
-  Dir.chdir 'commonwatir' do
-    if command == "push"
-	  # make sure that everything is ready for the release
-	  # and that git tags will be pushed to the origin.
-	  sh "rake release"
-	else
-      sh "gem #{command} commonwatir.gemspec"
-	end
-  end
-  Dir.chdir 'watir' do
-    # can't use rake release here since tags are already pushed
-	# and Bundler will barf on that.
-    sh "gem #{command} watir.gemspec"
-  end
+def build_gems
+  Dir.chdir("commonwatir") { sh "rake build" }
+  Dir.chdir("watir") { sh "rake build:all" }
+
   mkdir_p "pkg" unless File.exist?("pkg")
-  gems = Dir['**/*.gem']
-  gems.each {|gem| FileUtils.mv gem, 'pkg'}
+  gems = Dir['{commonwatir,watir}/**/*.gem']
+  gems.each {|gem| FileUtils.cp gem, 'pkg'}
 end
 
-
+def release_gems
+  Dir.chdir("commonwatir") { sh "rake release" }
+  Dir.chdir("watir") do
+    Dir["pkg/*.gem"].each do |gem|
+      sh "gem push #{gem}"
+    end
+  end
+end
