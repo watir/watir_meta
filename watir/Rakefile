@@ -3,9 +3,11 @@ $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require 'bundler'
 Bundler::GemHelper.install_tasks
 
+task :default => "build:all"
+
 namespace :build do
-  desc "Build for all platforms."
-  task :all => :build do
+  desc "Build for Windows platform."
+  task :win => :build do
     begin
       ENV["build_for_windows"] = "true"
       Rake::Task["build"].reenable
@@ -14,11 +16,17 @@ namespace :build do
       ENV["build_for_windows"] = nil
     end
   end
+  
+  desc "Build for all platforms."
+  task :all => [:build, "build:win"]
 end
 
 namespace :release do
-  desc "Release for all platforms."
-  task :all => :release do
-    sh "gem push pkg/#{Dir["pkg/*mingw32.gem"].first}"
+  desc "Release for Windows platform."
+  task :win => "build:win" do
+    sh "gem push #{Dir["pkg/*mingw32.gem"].sort_by{|f| File.mtime(f)}.last}"
   end
+
+  desc "Release for all platforms."
+  task :all => [:release, "release:win"]
 end
