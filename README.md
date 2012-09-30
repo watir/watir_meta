@@ -7,13 +7,13 @@ They support Internet Explorer on Windows, Firefox and Chrome on Windows, Mac an
 
 About
 -----
-This is the meta-gem for having a convenient way to switch between different Watir drivers.    
+This is the meta-gem for installing all necessary dependencies and having a convenient way to switch between different Watir drivers.    
 
 Currently supported drivers are:
  - [watir-classic] (https://github.com/watir/watir-classic)
  - [watir-webdriver] (https://github.com/watir/watir-webdriver)
 
-Visit [Watir website](http://watir.com) or refer to each gem's own README for better understanding of how to use these libraries.
+Visit [Watir website](http://watir.com) or refer to each gem's own README and documentation for better understanding of how to use these libraries.
 
 Usage
 -----
@@ -28,7 +28,7 @@ Then in your test file:
     browser = Watir::Browser.new
 
 The command above will use watir-classic with Internet Explorer on Windows and
-watir-webdriver with Firefox on Linux/OS X.
+watir-webdriver with Firefox on Linux/OS X by default.
 
 Switching Drivers
 -----------------
@@ -62,3 +62,9 @@ Limitations
 Currently it is possible to use only one driver per Ruby process. All the
 methods to switch between drivers won't have any effect after you've opened
 your first browser window.
+
+
+License
+-------
+
+See [LICENSE](https://github.com/watir/watir/blob/master/LICENSE) for details.
