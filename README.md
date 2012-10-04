@@ -18,7 +18,11 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 Usage
 -----
 
-Install this gem with the following command:
+Add it into your Gemfile:
+
+    gem "watir", "~>4.0"
+
+Or install it manually with the following command:
     
     gem install watir
 
@@ -35,20 +39,20 @@ Switching Drivers
 
 There are multiple ways to specify a different driver.
 
-By specifying different browser:
+By specifying different browser for ````#initialize````:
     
     require "watir"
     # will use watir-webdriver with Chrome
     browser = Watir::Browser.new :chrome
 
-By specifying driver manually:
+By specifying driver manually via ````Watir.driver#=````:
     
     require "watir"
     # will use watir-webdriver with Internet Explorer
     Watir.driver = :webdriver
     browser = Watir::Browser.new :ie
 
-By using an environment variable:
+Or by using an environment variable ````WATIR_DRIVER````:
     
     require "watir"
     # will use watir-classic
