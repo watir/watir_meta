@@ -1,3 +1,7 @@
+4.0.2 - 2012/10/31
+
+* Fix setting Watir driver via environment variable WATIR_DRIVER.
+
 4.0.1 - 2012/10/21
 ---
 
