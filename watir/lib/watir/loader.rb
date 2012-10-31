@@ -49,7 +49,7 @@ module Watir
     end
 
     def driver
-      @driver || ENV["WATIR_DRIVER"] || default_driver
+      @driver || (ENV["WATIR_DRIVER"] && ENV["WATIR_DRIVER"].to_sym) || default_driver
     end
 
     def driver=(driver)
