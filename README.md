@@ -26,17 +26,20 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 ## Usage
 
 Add it into your Gemfile:
-
-    gem "watir", "~>4.0"
+````ruby
+gem "watir", "~>4.0"
+````
 
 Or install it manually with the following command:
-    
-    gem install watir
+````   
+gem install watir
+````
 
 Then in your test file:
-    
-    require "watir"
-    browser = Watir::Browser.new
+````ruby
+require "watir"
+browser = Watir::Browser.new
+````
 
 The command above will use watir-classic with Internet Explorer on Windows and
 watir-webdriver with Firefox on Linux/OS X by default.
@@ -47,24 +50,27 @@ watir-webdriver with Firefox on Linux/OS X by default.
 There are multiple ways to specify a different driver.
 
 By specifying different browser via ````#initialize````:
-    
-    require "watir"
-    # will use watir-webdriver with Chrome
-    browser = Watir::Browser.new :chrome
+````ruby    
+require "watir"
+# will use watir-webdriver with Chrome
+browser = Watir::Browser.new :chrome
+````
 
 By specifying driver manually via ````Watir.driver#=````:
-    
-    require "watir"
-    # will use watir-webdriver with Internet Explorer
-    Watir.driver = :webdriver
-    browser = Watir::Browser.new :ie
+````ruby    
+require "watir"
+# will use watir-webdriver with Internet Explorer
+Watir.driver = :webdriver
+browser = Watir::Browser.new :ie
+````
 
 Or by using an environment variable ````WATIR_DRIVER````:
-    
-    require "watir"
-    # will use watir-classic
-    ENV["WATIR_DRIVER"] = "classic"
-    browser = Watir::Browser.new
+````ruby
+require "watir"
+# will use watir-classic
+ENV["WATIR_DRIVER"] = "classic"
+browser = Watir::Browser.new
+````
 
 
 ## Limitations
