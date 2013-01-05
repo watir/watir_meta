@@ -1,4 +1,5 @@
 # Watir
+![Watir Logo](https://raw.github.com/watir/watir/master/watir.gif "Watir Logo")
 
 Watir, pronounced water, is an open-source (BSD) family of Ruby libraries for automating web browsers.
 It supports your app no matter what technology it is developed in.
