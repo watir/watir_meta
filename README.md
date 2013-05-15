@@ -11,17 +11,20 @@ They support Internet Explorer on Windows, Firefox and Chrome on Windows, Mac an
 This is the meta-gem for installing all necessary dependencies and having a convenient way to switch between different Watir drivers.    
 
 Currently supported drivers are:
- - [watir-classic] (https://github.com/watir/watir-classic)
- - [watir-webdriver] (https://github.com/watir/watir-webdriver)
+ - [watir-classic](https://github.com/watir/watir-classic)
+ - [watir-webdriver](https://github.com/watir/watir-webdriver)
 
 Visit [Watir website](http://watir.com) or refer to each gem's own README and documentation for better understanding of how to use these libraries.
 
 
 ## Watir Related Libraries
 
-* [watir-rspec](https://github.com/watir/watir-rspec) for writing your tests with RSpec.
+* [watir-rspec](https://github.com/watir/watir-rspec) or [WatirSplash](https://github.com/jarmo/WatirSplash) for writing your tests with RSpec.
 * [watir-rails](https://github.com/watir/watir-rails) for using Watir with Rails.
-
+* [watir-robot](https://github.com/semperos/watir-robot) for using Watir with Robot Framework.
+* [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance.
+* [page-object](https://github.com/cheezy/page-object) or [watirsome](https://github.com/p0deje/watirsome) as page objects DSL.
+* [watirmark](https://github.com/convio/watirmark) as MVC framework for you tests.
 
 ## Usage
 
