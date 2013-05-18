@@ -16,15 +16,25 @@ Currently supported drivers are:
 
 Visit [Watir website](http://watir.com) or refer to each gem's own README and documentation for better understanding of how to use these libraries.
 
-
 ## Watir Related Libraries
 
-* [watir-rspec](https://github.com/watir/watir-rspec) or [WatirSplash](https://github.com/jarmo/WatirSplash) for writing your tests with RSpec.
+### Integration
+
 * [watir-rails](https://github.com/watir/watir-rails) for using Watir with Rails.
 * [watir-robot](https://github.com/semperos/watir-robot) for using Watir with Robot Framework.
+* [watir-rspec](https://github.com/watir/watir-rspec) or [watirsplash](https://github.com/jarmo/WatirSplash) for writing your tests with RSpec.
+
+### Frameworks
+
+* [page-object](https://github.com/cheezy/page-object)
+* [test-page](https://github.com/jarmo/test-page)
+* [test-factory](https://github.com/rSmart/TestFactory)
+* [watirmark](https://github.com/convio/watirmark)
+* [watirsome](https://github.com/p0deje/watirsome)
+
+### Other
+
 * [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance.
-* [page-object](https://github.com/cheezy/page-object) or [watirsome](https://github.com/p0deje/watirsome) as page objects DSL.
-* [watirmark](https://github.com/convio/watirmark) as MVC framework for you tests.
 
 ## Usage
 
