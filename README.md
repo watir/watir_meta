@@ -35,6 +35,8 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 ### Other
 
 * [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance.
+* [watir-scroll](https://github.com/p0deje/watir-scroll) for scrolling emulation
+* [watir-dom-wait](https://github.com/p0deje/watir-dom-wait) for element waiting based on DOM change
 
 ## Usage
 
