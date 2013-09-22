@@ -7,11 +7,9 @@ module Watir
       def new(browser=nil, *args)
         load_driver_for browser
 
-        if Watir.driver == :webdriver
-          # remove this class method for WebDriver to avoid endless loop
-          singleton_class = class << self; self end
-          singleton_class.send :remove_method, :new
-        end
+        # remove this class method to avoid endless loop
+        singleton_class = class << self; self end
+        singleton_class.send :remove_method, :new
 
         new browser.nil? && Watir.driver == :webdriver ? :firefox : browser, *args
       end
@@ -34,7 +32,7 @@ module Watir
       private
 
       def load_driver_for(browser)
-        if browser && browser.to_sym != :ie && Watir.driver == :classic
+        if browser && browser.respond_to?(:to_sym) && browser.to_sym != :ie && Watir.driver == :classic
           Watir.driver = :webdriver 
         end
         Watir.load_driver
