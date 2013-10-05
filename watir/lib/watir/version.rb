@@ -1,3 +1,3 @@
 module Watir
-  BUNDLE_VERSION = '4.0.2'
+  BUNDLE_VERSION = '5.0.0'
 end
