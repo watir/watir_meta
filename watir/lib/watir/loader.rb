@@ -2,18 +2,14 @@ require File.expand_path('version', File.dirname(__FILE__))
 
 module Watir
   class Browser
+    def initialize(browser=nil, *args)
+      self.class.load_driver_for browser
+
+      # execute just loaded driver's #initialize
+      initialize browser.nil? && Watir.driver == :webdriver ? :firefox : browser, *args
+    end
+
     class << self
-
-      def new(browser=nil, *args)
-        load_driver_for browser
-
-        # remove this class method to avoid endless loop
-        singleton_class = class << self; self end
-        singleton_class.send :remove_method, :new
-
-        new browser.nil? && Watir.driver == :webdriver ? :firefox : browser, *args
-      end
-
       def start(url, browser=nil, *args)
         load_driver_for browser
 
@@ -26,10 +22,9 @@ module Watir
 
       def method_missing(name, *args, &block)
         Watir.load_driver
+        return super unless respond_to? name
         send name, *args, &block
       end
-
-      private
 
       def load_driver_for(browser)
         if browser && browser.respond_to?(:to_sym) && browser.to_sym != :ie && Watir.driver == :classic
