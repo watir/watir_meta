@@ -37,6 +37,7 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 * [watir-webdriver-performance](https://github.com/90kts/watir-webdriver-performance) for monitoring web application performance.
 * [watir-scroll](https://github.com/p0deje/watir-scroll) for scrolling emulation
 * [watir-dom-wait](https://github.com/p0deje/watir-dom-wait) for element waiting based on DOM change
+* [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
 
 ## Usage
 
