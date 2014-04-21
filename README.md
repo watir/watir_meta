@@ -23,6 +23,7 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 * [watir-rails](https://github.com/watir/watir-rails) for using Watir with Rails.
 * [watir-rspec](https://github.com/watir/watir-rspec) for writing your tests with RSpec.
 * [watir-robot](https://github.com/semperos/watir-robot) for using Watir with Robot Framework.
+* [watir-timecop](https://github.com/p0deje/watir-timecop) for making Watir compatible with Timecop.
 
 ### Frameworks
 
