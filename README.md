@@ -39,6 +39,7 @@ Visit [Watir website](http://watir.com) or refer to each gem's own README and do
 * [watir-scroll](https://github.com/p0deje/watir-scroll) for scrolling emulation
 * [watir-dom-wait](https://github.com/p0deje/watir-dom-wait) for element waiting based on DOM change
 * [watir-get-image-content](https://github.com/orangeudav/watir-get-image-content) for getting image content
+* [watir-extensions-element-screenshot](https://github.com/ansoni/watir-extensions-element-screenshot) for making screenshot of specific element
 
 ## Usage
 
