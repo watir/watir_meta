@@ -1,0 +1,36 @@
+---
+layout: page
+title: WYSIWYG Editors
+date: 2011-08-14 21:16:19.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '19425456'
+  sharing_disabled: '1'
+author: 
+---
+<h1>There are two ways to enter text into a WYSIWYG editor using Watir-WebDriver:</h1>
+<ul>
+<li>locate the iFrame, and use <em>.send_keys</em> to enter text (downside is browser <strong>must</strong> be in the foreground)</li>
+<li>execute javascript on the browser object that sets the value of the WYSIWYG editor (most reliable method)</li>
+</ul>
+<p><strong>CKEditor</strong></p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new :firefox<br />
+b.goto 'http://ckeditor.com/demo'<br />
+b.execute_script(&quot;CKEDITOR.instances['editor1'].setData('hello world');&quot;)<br />
+b.frame(:title =&gt; 'Rich text editor, editor1, press ALT 0 for help.').send_keys 'hello world again'<br />
+[/sourcecode]</p>
+<p><strong>TinyMCE Editor</strong></p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new<br />
+b.goto 'http://tinymce.moxiecode.com/tryit/full.php'<br />
+b.execute_script(&quot;tinyMCE.get('content').execCommand('mceSetContent',false, 'hello world' );&quot;)<br />
+b.frame(:id =&gt; &quot;content_ifr&quot;).send_keys 'hello world again'<br />
+[/sourcecode]</p>

@@ -1,0 +1,59 @@
+---
+layout: page
+title: JavaScript Dialogs
+date: 2011-08-14 21:03:39.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '17727731'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>JavaScript dialogs are fairly common in web applications.</p>
+<p>Watir-WebDriver has an inbuilt library for handling the dialogs, and capturing values from the dialogs.</p>
+<h3>JavaScript Alerts</h3>
+<p>[sourcecode language="ruby" light="true"]<br />
+# Check if alert is shown<br />
+browser.alert.exists?</p>
+<p># Get text of alert<br />
+browser.alert.text</p>
+<p># Close alert<br />
+browser.alert.ok<br />
+browser.alert.close<br />
+[/sourcecode]</p>
+<h3>JavaScript Confirms</h3>
+<p>[sourcecode language="ruby" light="true"]<br />
+# Accept confirm<br />
+browser.alert.ok</p>
+<p># Cancel confirm<br />
+browser.alert.close<br />
+[/sourcecode]</p>
+<h3>JavaScript Prompt</h3>
+<p>[sourcecode language="ruby" light="true"]<br />
+# Enter text to prompt<br />
+browser.alert.set &quot;Prompt answer&quot;</p>
+<p># Accept prompt<br />
+browser.alert.ok</p>
+<p># Cancel prompt<br />
+browser.alert.close<br />
+[/sourcecode]</p>
+<h2>Alternative Method</h2>
+<p>If you're having trouble using the above method, you can override the JavaScript functions to return the value you want, so when they're meant to show, they don't!</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+# don't return anything for alert<br />
+browser.execute_script(&quot;window.alert = function() {}&quot;)</p>
+<p># return some string for prompt to simulate user entering it<br />
+browser.execute_script(&quot;window.prompt = function() {return 'my name'}&quot;)</p>
+<p># return null for prompt to simulate clicking Cancel<br />
+browser.execute_script(&quot;window.prompt = function() {return null}&quot;)</p>
+<p># return true for confirm to simulate clicking OK<br />
+browser.execute_script(&quot;window.confirm = function() {return true}&quot;)</p>
+<p># return false for confirm to simulate clicking Cancel<br />
+browser.execute_script(&quot;window.confirm = function() {return false}&quot;)</p>
+<p># don't return anything for leave page popup<br />
+browser.execute_script(&quot;window.onbeforeunload = null&quot;)<br />
+[/sourcecode]</p>

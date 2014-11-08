@@ -1,0 +1,79 @@
+---
+layout: page
+title: Web Elements
+date: 2011-08-14 19:55:38.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '419467'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>All HTML elements are supported by Watir-WebDriver. Some examples are below:</p>
+<h2>Text Fields</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+t = b.text_field :id =&gt; 'entry_0'<br />
+t.exists?<br />
+t.set 'your name'<br />
+t.value<br />
+[/sourcecode]</p>
+<h2>Select Lists - Combos</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+s = b.select_list :id =&gt; 'entry_1'<br />
+s.select 'Ruby'<br />
+s.selected_options<br />
+[/sourcecode]</p>
+<h2>Radios</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+r = b.label(:text =&gt; 'What is ruby?').parent.radio :value =&gt; 'A gem'<br />
+r.exists?<br />
+r.set<br />
+r.set?<br />
+[/sourcecode]</p>
+<h2>Checkboxes</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+c = b.label(:text =&gt; 'What versions of ruby?').parent.checkbox :value =&gt; '1.9.2'<br />
+c.exists?<br />
+c.set<br />
+c.set?<br />
+[/sourcecode]</p>
+<h2>Buttons</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+btn = b.button :value =&gt; 'Submit'<br />
+btn.exists?<br />
+btn.click<br />
+[/sourcecode]</p>
+<h2>Links</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+l = b.link :text =&gt; 'Google Docs'<br />
+l.exists?<br />
+l.click<br />
+[/sourcecode]</p>
+<h2>Divs &amp; Spans</h2>
+<p>[sourcecode language="ruby" light="true"]require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+d = b.div :class =&gt; 'ss-form-desc ss-no-ignore-whitespace'<br />
+d.exists?<br />
+d.text<br />
+s = b.span :class =&gt; 'ss-powered-by'<br />
+s.exists?<br />
+s.text<br />
+[/sourcecode]</p>
+<h2>WYSIWYG Editors</h2>
+<p>See: <a title="WYSIWYG Editors" href="http://watirwebdriver.com/wysiwyg-editors/">WYSIWYG Editors</a> page</p>

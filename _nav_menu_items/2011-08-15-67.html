@@ -1,0 +1,21 @@
+---
+layout: nav_menu_item
+title: ''
+date: 2011-08-15 23:16:00.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: nav_menu_item
+published: true
+meta:
+  _menu_item_type: post_type
+  _menu_item_menu_item_parent: '48'
+  _menu_item_object_id: '64'
+  _menu_item_object: page
+  _menu_item_target: ''
+  _menu_item_classes: a:1:{i:0;s:0:"";}
+  _menu_item_xfn: ''
+  _menu_item_url: ''
+author: 
+---
+<p>The easiest and best way of dealing with file downloads is to avoid the file download boxes altogether. This is done by programatically telling the browser to automatically save files to a certain directory, that your test can access. Firefox profile = Selenium::WebDriver::Firefox::Profile.new profile['browser.download.folderList'] = 2 #custom location profile['browser.download.dir'] = “#{Dir.pwd}/downloads” profile['browser.helperApps.neverAsk.saveToDisk'] = “text/csv,application/pdf” b = Watir::Browser.new :firefox, :profile =&gt; profile A full list of these Firefox options are available in firefox by typing ‘about:config‘ in the address bar. Chrome profile = Selenium::WebDriver::Chrome::Profile.new profile['download.prompt_for_download'] = false profile['download.default_directory'] = “#{Dir.pwd}/downloads” b = Watir::Browser.new :chrome, :profile =&gt; profile See a full list of Chrome preferences</p>

@@ -1,0 +1,46 @@
+---
+layout: page
+title: Watir WebDriver
+date: 2011-08-12 10:24:32.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '419467'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>Welcome to the home of <strong>Watir WebDriver</strong>: the most elegant way to use <a href="http://code.google.com/p/selenium/">WebDriver</a> with ruby.</p>
+<p><strong>Watir</strong> (pronounced Water: I know it's confusing) stands for <strong>W</strong>eb <strong>A</strong>pplication <strong>T</strong>esting <strong>i</strong>n <strong>R</strong>uby, and the <strong>WebDriver</strong> part stands for, um, WebDriver.</p>
+<h2>What browsers does Watir-WebDriver support?</h2>
+<p>Any browser that WebDriver supports: namely <a title="Firefox" href="http://watirwebdriver.com/firefox/">Firefox</a>, <a title="Chrome" href="http://watirwebdriver.com/chrome/">Chrome</a> &amp; <a title="Internet Explorer" href="http://watirwebdriver.com/internet-explorer/">IE</a>. <a href="http://watirwebdriver.com/safari/">Safari</a> support is <del>sadly</del> gladly <del>missing</del> now available.</p>
+<h2>How good is Watir-WebDriver?</h2>
+<p>I could make up lots of quotes about how good it is, but I don't need to, it's <em>that</em> good.</p>
+<h2>Getting Started</h2>
+<pre>gem install watir-webdriver</pre>
+<p>or just add watir-webdriver to your gemfile if you rock and use <a href="http://gembundler.com/">bundler</a> (if you don't use bundler, you should, right now).</p>
+<p>Watir-WebDriver ♥s ruby 1.9.3, but it won't complain in older versions nonetheless</p>
+<h2>Getting Going</h2>
+<p>Ready, steady... at a prompt, type <em>irb</em>. Meet Ruby, your servant who will perform any (syntactically correct) command you can throw her way. So type in the following commands one by one (but don't shout them) to see some amazing things happen in browserland:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new<br />
+b.goto 'bit.ly/watir-webdriver-demo'<br />
+b.text_field(:id =&gt; 'entry_0').set 'your name'<br />
+b.select_list(:id =&gt; 'entry_1').select 'Ruby'<br />
+b.select_list(:id =&gt; 'entry_1').selected? 'Ruby'<br />
+b.button(:name =&gt; 'submit').click<br />
+b.text.include? 'Thank you'<br />
+[/sourcecode]</p>
+<p>Wow, wasn't that easy! You're a pro; you should make yourself a cup-of-tea for your good work.</p>
+<h2>Look Ma! No xpath selectors!</h2>
+<p>One of things you should have noticed straight away is the absense of xpath selectors. Whilst Watir-WebDriver fully supports xpath (and css) selectors, you'll find the API so awesome that you'll find you don't ever need to use them, unless you're feeling kinda messed up.</p>
+<h2>Look Ma! No <del>training wheels</del> test recorders</h2>
+<p>Automated test script recorders (like Selenium IDE) are for dummies. Seriously. The combination of the instant feedbackness of <strong>irb</strong>, with the awesomeness of the Watir-WebDriver API means you'll be way more productive and efficient using these two things that you'll ever be with a silly recorder. Plus your scripts will run 1000x better because you they won't be full of the guff that was recorded by that silly recorder, such as a 100 character css selector that neither you, or anyone else, understands.</p>
+<h2>♥ Cucumber and Watir-WebDriver sitting in a tree ♥</h2>
+<p><a href="http://cukes.info">Cucumber</a> + Watir-WebDriver are a match made in heaven. They work really well together to automate your web app testing with a business domain specific specification layer. See <a href="http://watirmelon.com/2011/05/18/specification-by-example-a-love-story/">specification by example: a love story</a>.</p>
+<h2>The power of ruby</h2>
+<p>Ruby is an amazing language and a joy to use. You'll often find something new each day that makes your life, and your love of ruby, that little bit better. Watir-WebDriver is no different.</p>

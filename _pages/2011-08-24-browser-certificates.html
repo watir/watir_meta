@@ -1,0 +1,28 @@
+---
+layout: page
+title: Browser Certificates
+date: 2011-08-24 12:26:07.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '19425456'
+author: 
+---
+<h2>Firefox</h2>
+<p>The Firefox driver properly handles untrusted certificates by default. </p>
+<p>If you have a trusted certificate, but there is some other certificate error such as a hostname mismatch (eg. using  a production certificate in test), you should do the following:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile.assume_untrusted_certificate_issuer = false<br />
+b = Watir::Browser.new :firefox, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<p>The reason this is needed is explained <a href="http://code.google.com/p/selenium/wiki/UntrustedSSLCertificates#Implementation_details">here</a>.</p>
+<h2>Chrome</h2>
+<p>It is easy to ignore invalid Browser certificates in Google Chrome by passing a command line switch:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+      Watir::Browser.new :chrome, :switches =&gt; ['--ignore-certificate-errors']<br />
+[/sourcecode]</p>

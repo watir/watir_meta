@@ -1,0 +1,44 @@
+---
+layout: page
+title: Measure Page Performance
+date: 2011-08-18 15:18:51.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '19425456'
+  sharing_disabled: '1'
+author: 
+---
+<p>The <a href="http://rubygems.org/gems/watir-webdriver-performance">Watir-WebDriver-Performance gem</a> aims to provide a set of navigation timing metrics for Watir-WebDriver actions using a <a href="http://w3c-test.org/webperf/specs/NavigationTiming/">W3C page performance standard</a>. This is a perfect solution to capture response time metrics, and it's very straightforward to do but <em>currently</em> only works in Chrome and IE9l, so there's no Firefox support.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+require 'watir-webdriver-performance'</p>
+<p>b = Watir::Browser.new :chrome</p>
+<p>10.times do<br />
+  b.goto 'http://watir.com'<br />
+  load_secs = b.performance.summary[:response_time]/1000<br />
+  puts &quot;Load Time: #{load_secs} seconds.&quot;<br />
+end<br />
+[/sourcecode]</p>
+<p>This produces something like:</p>
+<pre>Load Time: 3.701 seconds.
+Load Time: 0.694 seconds.
+Load Time: 1.874 seconds.
+Load Time: 1.721 seconds.
+Load Time: 2.096 seconds.
+Load Time: 0.823 seconds.
+Load Time: 2.362 seconds.
+Load Time: 1.008 seconds.
+Load Time: 1.761 seconds.
+Load Time: 2.066 seconds.</pre>
+<p>List of available metric groupings</p>
+<ul>
+<li>:summary</li>
+<li>:navigation</li>
+<li>:memory</li>
+<li>:timing</li>
+</ul>

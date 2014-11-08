@@ -1,0 +1,53 @@
+---
+layout: page
+title: Firefox
+date: 2011-08-18 15:43:34.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  sharing_disabled: '1'
+  _wp_page_template: default
+  _edit_last: '419467'
+author: 
+---
+<h2>It just works™</h2>
+<p>Firefox is supported through a JavaScript driver, therefore 'it just works™' on all platforms.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+b = Watir::Browser.new :firefox<br />
+[/sourcecode]</p>
+<h2>Firefox Profiles</h2>
+<p>By default, the Firefox driver creates a new Firefox profile for each test run, which is the recommended action.</p>
+<p>You can specify an existing profile to use, such as your 'default' profile:</p>
+<p>[sourcecode language="ruby" light="true"]b = Watir::Browser.new :firefox, :profile =&gt; 'default'[/sourcecode]</p>
+<p>You can also create a new Firefox profile each test run using any of the options that you can configure in the <code>about:config</code> pane of Firefox</p>
+<p>For example:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile['browser.download.dir'] = &quot;/tmp/webdriver-downloads&quot;<br />
+profile['browser.download.folderList'] = 2<br />
+profile['browser.helperApps.neverAsk.saveToDisk'] = &quot;application/pdf&quot;</p>
+<p>b = Watir::Browser.new :firefox, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<h2>Native Events on Microsoft Windows</h2>
+<p>Native events are enabled on Windows by default and intend to provide a lower level interaction between webdriver and the operating system. However, these seem to cause problems in certain conditions. These can be easily disabled by setting the option on the Firefox profile:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile.native_events = false<br />
+Watir::Browser.new :firefox, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<h2>Specifying a proxy to use with Firefox</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile.proxy = Selenium::WebDriver::Proxy.new :http =&gt; 'myproxy.com:8080:, :ssl =&gt; 'myproxy.com:8080'<br />
+b = Watir::Browser.new :firefox, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<h2>Using Firebug with Watir-WebDriver</h2>
+<p>First download the Firebug xpi file, then use the following code:<br />
+[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile.add_extension &quot;../path/to/firebug.xpi&quot;<br />
+b = Watir::Browser.new :firefox, :profile =&gt; profile<br />
+[/sourcecode]</p>

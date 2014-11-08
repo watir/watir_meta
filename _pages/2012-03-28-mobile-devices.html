@@ -1,0 +1,31 @@
+---
+layout: page
+title: Mobile Devices
+date: 2012-03-28 14:00:33.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '19425456'
+author: 
+---
+<p>There are three options for using watir-webdriver to test mobile sites:</p>
+<ul>
+<li>running tests against an embedded browser on a real device;</li>
+<li>running tests against an embedded browser on a device emulator on a desktop machine; or</li>
+<li>running tests against a desktop browser that is configured with the same resolution and user-agent credentials as a mobile browser.</li>
+</ul>
+<p>Running against real and emulated devices (either iOS or Android) is both costly and is not as fast as using desktop browsers. There are documented details on setting up the iOS driver <a href="http://code.google.com/p/selenium/wiki/IPhoneDriver">here</a> and Android <a href="http://code.google.com/p/selenium/wiki/AndroidDriver">here</a>. Using a real Apple device requires an Apple developer account which costs around $99.</p>
+<p>A much easier and more efficient way is to use a desktop browser configured to mimic that of a mobile browser. This is extremely easy to do with the <a href="http://rubygems.org/gems/webdriver-user-agent">webdriver-user-agent gem</a>:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+require 'webdriver-user-agent'<br />
+driver = UserAgent.driver(:browser =&gt; :chrome, :agent =&gt; :iphone, :orientation =&gt; :landscape)<br />
+browser = Watir::Browser.new driver<br />
+browser.goto 'tiffany.com'<br />
+browser.url.should == 'http://m.tiffany.com/International.aspx'<br />
+[/sourcecode]</p>
+<p>The gem currently supports firefox and chrome as desktop browsers, and iphone, ipad, android_phone, and android_tablet as devices; portrait and landscape orientations are also available.</p>

@@ -1,0 +1,21 @@
+---
+layout: page
+title: Determining which Browser
+date: 2011-08-22 11:45:48.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '19425456'
+author: 
+---
+<p>You may want to determine which browser you are running in your Watir-WebDriver code.</p>
+<p>It's simple to do:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new :chrome<br />
+browser.driver.browser #=&gt; :chrome<br />
+[/sourcecode]</p>

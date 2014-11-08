@@ -1,0 +1,21 @@
+---
+layout: nav_menu_item
+title: Home
+date: 2011-08-14 21:11:36.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: nav_menu_item
+published: true
+meta:
+  _menu_item_type: post_type
+  _menu_item_menu_item_parent: '0'
+  _menu_item_object_id: '5'
+  _menu_item_object: page
+  _menu_item_target: ''
+  _menu_item_classes: a:1:{i:0;s:0:"";}
+  _menu_item_xfn: ''
+  _menu_item_url: ''
+author: 
+---
+<p>Welcome to the home of Watir WebDriver: the most elegant way to use WebDriver with ruby. Watir (pronounced Water: I know it’s confusing) stands for Web Application Testing in Ruby, and the WebDriver part stands for, um, WebDriver. What browsers does Watir-WebDriver support? Any browser that WebDriver supports: namely Firefox, Chrome &amp; IE. Safari support is sadly missing. How good is Watir-WebDriver? I could make up lots of quotes about how good it is, but I don’t need to, it’s that good. Getting Started gem install watir-webdriver or just add watir-webdriver to your gemfile if you rock and use bundler (if you don’t use bundler, you should, right now). Watir-WebDriver ♥s ruby 1.9.2, but it won’t complain in older versions nonetheless Getting Going Ready, steady… at a prompt, type irb. Meet Ruby, your servant who will perform any (syntactically correct) command you can throw her way. So type in the following commands one by one (but don’t shout them) to see some amazing things happen in browserland: require ‘watir-webdriver’ b = Watir::Browser.new b.goto ‘bit.ly/watir-webdriver-demo’ b.text_field(:id =&gt; ‘entry_0′).set ‘your name’ b.select_list(:id =&gt; ‘entry_1′).select ‘Ruby’ b.select_list(:id =&gt; ‘entry_1′).selected? ‘Ruby’ b.button(:value =&gt; ‘Submit’).click b.text.include? ‘Thank you’ Wow, wasn’t that easy! You’re a pro;…</p>

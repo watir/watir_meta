@@ -1,0 +1,49 @@
+---
+layout: page
+title: Safari
+date: 2012-04-17 22:06:31.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '19425456'
+  _wp_page_template: default
+author: 
+---
+<p>Watir-WebDriver supports Safari thanks to the release of <a href="http://code.google.com/p/selenium/wiki/SafariDriver">SafariDriver</a>.</p>
+<p>The downside is the set up is quite lengthy at the moment as it requires a Safari extension (version 5+) and until someone publishes the extension to the online gallery, you'll have to build it yourself.</p>
+<p><strong>Steps to build the extension</strong></p>
+<ol>
+<li>First, <a href="https://developer.apple.com/certificates/index.action">create and install a Safari extension</a> certificate at Apple. You'll need to sign up for a (free) Safari developer account, and download your certificate locally. <img class="alignnone size-full wp-image-252" title="Safari Extension" src="assets/screen-shot-2012-04-17-at-9-43-06-pm.png" alt="" width="584" height="184" /></li>
+<li>Now, you'll need to build the extension. First, you'll need to check out the selenium source code to do so:
+<pre>svn co http://selenium.googlecode.com/svn/trunk selenium</pre>
+</li>
+<li>Then change into this directory and build the extension
+<pre>cd selenium
+./go safari</pre>
+</li>
+<li>Finally, install your extension:
+<ol>
+<li>Launch Safari</li>
+<li>Ensure develop menu is shown by setting it in Advanced Preferences <img class="alignnone size-full wp-image-253" title="Develop Menu" src="assets/screen-shot-2012-04-17-at-9-52-49-pm.png" alt="" width="572" height="323" /></li>
+<li>Open the Extension Builder (Develop &gt; Show Extension Builder)</li>
+<li>Add your new extension from: <code>$SELENIUM_CHECKOUT_LOCATION/build/javascript/safari-driver/SafariDriver.safariextension</code></li>
+</ol>
+</li>
+</ol>
+<p><strong>Using Safari with Watir-WebDriver</strong></p>
+<p>It's exactly the same as any other browser:</p>
+<p>[sourcecode language="ruby"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new :safari<br />
+[/sourcecode]</p>
+<p><strong>Caveat Emptor</strong></p>
+<ul>
+<li>browser.execute_script is a little flaky</li>
+<li>Can't use local html files as extensions don't load</li>
+<li>Can't perform browser file uploads at present</li>
+<li>Not sure how to configure browser options programatically like user agent strings</li>
+</ul>
+<p>Enjoy!</p>

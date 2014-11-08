@@ -1,0 +1,93 @@
+---
+layout: page
+title: Sending Special Keys
+date: 2011-08-18 20:07:19.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  sharing_disabled: '1'
+  _edit_last: '419467'
+  _wp_page_template: default
+author: 
+---
+<p>To send special keys to an element or browser page, you use the <code>.send_keys</code> method, with a symbolic representation of what you would like to send.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+b.send_keys :enter<br />
+[/sourcecode]</p>
+<p>You can also do things like this:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+b.element.send_keys [:control, 'a'], :backspace<br />
+[/sourcecode]</p>
+<p>You can also modify the click behaviour with keys:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+b.element.click(:shift, :control)<br />
+[/sourcecode]</p>
+<p>The full list of keys are available from <a href="http://code.google.com/p/selenium/source/browse/rb/lib/selenium/webdriver/common/keys.rb">here</a>:</p>
+<ul>
+<li>:null</li>
+<li>:cancel</li>
+<li>:help</li>
+<li>:backspace</li>
+<li>:tab</li>
+<li>:clear</li>
+<li>:return</li>
+<li>:enter</li>
+<li>:shift</li>
+<li>:left_shift</li>
+<li>:control</li>
+<li>:left_control</li>
+<li>:alt</li>
+<li>:left_alt</li>
+<li>:pause</li>
+<li>:escape</li>
+<li>:space</li>
+<li>:page_up</li>
+<li>:page_down</li>
+<li>:end</li>
+<li>:home</li>
+<li>:left</li>
+<li>:arrow_left</li>
+<li>:up</li>
+<li>:arrow_up</li>
+<li>:right</li>
+<li>:arrow_right</li>
+<li>:down</li>
+<li>:arrow_down</li>
+<li>:insert</li>
+<li>:delete</li>
+<li>:semicolon</li>
+<li>:equals</li>
+<li>:numpad0</li>
+<li>:numpad1</li>
+<li>:numpad2</li>
+<li>:numpad3</li>
+<li>:numpad4</li>
+<li>:numpad5</li>
+<li>:numpad6</li>
+<li>:numpad7</li>
+<li>:numpad8</li>
+<li>:numpad9</li>
+<li>:multiply</li>
+<li>:add</li>
+<li>:separator</li>
+<li>:subtract</li>
+<li>:decimal</li>
+<li>:divide</li>
+<li>:f1</li>
+<li>:f2</li>
+<li>:f3</li>
+<li>:f4</li>
+<li>:f5</li>
+<li>:f6</li>
+<li>:f7</li>
+<li>:f8</li>
+<li>:f9</li>
+<li>:f10</li>
+<li>:f11</li>
+<li>:f12</li>
+<li>:meta</li>
+<li>:command</li>
+</ul>

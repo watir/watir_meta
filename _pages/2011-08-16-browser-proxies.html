@@ -1,0 +1,26 @@
+---
+layout: page
+title: Browser Proxies
+date: 2011-08-16 16:21:55.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  sharing_disabled: '1'
+  _wp_page_template: default
+  _edit_last: '19425456'
+author: 
+---
+<h2>Example: setting a http and https proxy for Firefox</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Firefox::Profile.new<br />
+profile.proxy = Selenium::WebDriver::Proxy.new :http =&gt; 'my.proxy.com:8080', :ssl =&gt; 'my.proxy.com:8080'<br />
+browser = Watir::Browser.new :chrome, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<h2>Example: setting a http and https proxy for Chrome</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+switches = '--proxy-server=my.proxy.com:8080'<br />
+browser = Watir::Browser.new :chrome, :switches =&gt; switches<br />
+[/sourcecode]</p>

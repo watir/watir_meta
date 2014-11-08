@@ -1,0 +1,32 @@
+---
+layout: page
+title: Screenshots
+date: 2011-08-14 20:04:52.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '17727731'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>Watir-WebDriver has a pretty awesome screenshot capability, built right in.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+# Save screenshot to file<br />
+browser.screenshot.save 'screenshot.png'</p>
+<p># Represent screenshot as PNG image string<br />
+browser.screenshot.png</p>
+<p># Represent screenshot as Base64 encoded string<br />
+browser.screenshot.base64<br />
+[/sourcecode]</p>
+<p>The great thing about this is it gives you a screen shot of the entire page, not just <em>above the fold</em>.</p>
+<p>If you're using Cucumber also, you can easily embed this in your html report output by adding the following to your env.rb file:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+After do |scenario|<br />
+  browser.screenshot.save 'screenshot.png'<br />
+  embed 'screenshot.png', 'image/png'<br />
+end<br />
+[/sourcecode]</p>

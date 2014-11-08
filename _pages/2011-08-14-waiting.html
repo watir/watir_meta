@@ -1,0 +1,42 @@
+---
+layout: page
+title: Waiting
+date: 2011-08-14 20:44:22.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '3698964'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>Waiting is usually problematic when you have dynamic web interfaces, eg. web sites that have lots of <a href="http://en.wikipedia.org/wiki/Ajax_%28programming%29">AJAX</a>.</p>
+<h1>Explicit waits</h1>
+<p>There are four built in methods that you can use to make your waiting experience more pleasant (and remove those evil sleep statements from your code)</p>
+<ul>
+<li><code>Watir::Wait.until { ... }</code>: where you can wait for a block to be true</li>
+<li><code>object.when_present.set</code>: where you can do something when it’s present</li>
+<li><code>object.wait_until_present</code>:; where you just wait until something is present</li>
+<li><code>object.wait_while_present</code>:; where you just wait until something disappears</li>
+</ul>
+<p>The default timeout for all these methods is 30 seconds, but your can pass an argument to any of these to increase (or decrease) it as needed.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'bit.ly/watir-webdriver-demo'<br />
+b.select_list(:id =&gt; 'entry_1').wait_until_present<br />
+b.text_field(:id =&gt; 'entry_0').when_present.set 'your name'<br />
+b.button(:value =&gt; 'Submit').click<br />
+b.button(:value =&gt; 'Submit').wait_while_present<br />
+Watir::Wait.until { b.text.include? 'Thank you' }<br />
+[/sourcecode]</p>
+<h1>Implicit waits</h1>
+<p>As an alternative, you can use the WebDriver's implicit waits to specify a maximum time (in seconds) the script will try to find an element before timing out. This is done by setting the property of the underlying driver:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.new<br />
+b.driver.manage.timeouts.implicit_wait = 3 #3 seconds<br />
+[/sourcecode]</p>
+<p>Note that using implicit waits can make your tests slower and more difficult to understand when they fail. </p>

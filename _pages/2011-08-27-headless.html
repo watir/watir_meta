@@ -1,0 +1,40 @@
+---
+layout: page
+title: Headless
+date: 2011-08-27 21:42:01.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '419467'
+author: 
+---
+<p>The <a href="https://github.com/leonid-shevtsov/headless">headless</a> gem is a ruby wrapper for <a href="http://en.wikipedia.org/wiki/Xvfb">Xvfb</a> that makes it super easy to run graphical applications (such as real web browsers) on a headless Linux machine. This gem is perfect for running headless Watir-WebDriver tests using a real browser.</p>
+<h2>An Example<br />
+<h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+require 'headless'<br />
+headless = Headless.new<br />
+headless.start<br />
+b = Watir::Browser.start 'www.google.com'<br />
+puts b.title<br />
+b.close<br />
+headless.destroy<br />
+[/sourcecode]</p>
+<h2>A Cucumber Example</h2>
+<p>You should add the following code to your env.rb file:</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+if ENV['HEADLESS']<br />
+  require 'headless'<br />
+  headless = Headless.new<br />
+  headless.start<br />
+  at_exit do<br />
+    headless.destroy<br />
+  end<br />
+end<br />
+[/sourcecode]</h2>
+</h2>

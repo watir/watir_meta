@@ -1,0 +1,26 @@
+---
+layout: page
+title: Basic Browser Authentication
+date: 2011-08-29 23:00:48.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '19425456'
+  _wp_page_template: default
+  twitter_cards_summary_img_size: a:6:{i:0;i:471;i:1;i:203;i:2;i:3;i:3;s:24:"width="471"
+    height="203"";s:4:"bits";i:8;s:4:"mime";s:9:"image/png";}
+author: 
+---
+<p>The easiest and most elegant way to handle <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">basic browser authentication</a> is to supply the username and password in the URL, bypassing the dialog altogether.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+b = Watir::Browser.start 'http://admin:password@yourwebsite.com'<br />
+[/sourcecode]</p>
+<p><strong>Proxy Authentication</strong></p>
+<p>If the above method doesn't work, eg. you are authenticating against a NTLM proxy, you may have find using the <a href="https://addons.mozilla.org/en-us/firefox/addon/autoauth/">AutoAuth Firefox extension</a> will enable you to automatically dismiss this dialog with your credentials. See <a href="http://watirmelon.com/2012/06/27/automatic-firefox-authentication-when-using-selenium-webdriver-with-autoauth/">this blog post</a> for full details.</p>
+<p><strong>Example Basic Browser Authentication Dialog<br />
+</strong><br />
+<img class="alignnone size-full wp-image-184" title="Basic Browser Authentication Dialog" src="assets/basic-browser-authentication-dialog1.png" alt="" width="471" height="203" /></p>

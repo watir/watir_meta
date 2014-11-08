@@ -1,0 +1,22 @@
+---
+layout: page
+title: Browser Popups
+date: 2011-08-14 21:04:34.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '419467'
+  _wp_page_template: default
+  sharing_disabled: '1'
+author: 
+---
+<p>When a new browser window is opened, you can then 'use' the new window.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+browser.window(:title =&gt; &quot;annoying popup&quot;).use do<br />
+  browser.button(:id =&gt; &quot;close&quot;).click<br />
+end<br />
+[/sourcecode]</p>
+<p>See the <a href="https://github.com/watir/watirspec/blob/master/window_switching_spec.rb">Window Switching Spec</a> for more examples.</p>

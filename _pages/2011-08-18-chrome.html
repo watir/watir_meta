@@ -1,0 +1,35 @@
+---
+layout: page
+title: Chrome
+date: 2011-08-18 16:00:31.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  sharing_disabled: '1'
+  _edit_last: '419467'
+  _wp_page_template: default
+author: 
+---
+<h2>ChromeDriver</h2>
+<p>Chrome support is through the platform specific ChromeDriver binary, which you <a href="http://code.google.com/p/chromedriver/downloads/list">download</a> and put on your path.</p>
+<p>[sourcecode language="ruby" light="true"]b = Watir::Browser.new :chrome[/sourcecode]</p>
+<h2>Chrome Profiles</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+profile = Selenium::WebDriver::Chrome::Profile.new<br />
+profile['download.prompt_for_download'] = false<br />
+profile['download.default_directory'] = &quot;/path/to/dir&quot;</p>
+<p>b = Watir::Browser.new :chrome, :profile =&gt; profile<br />
+[/sourcecode]</p>
+<p>See the full list of profile options <a href="http://src.chromium.org/svn/trunk/src/chrome/common/pref_names.cc" title="prefnames.cc">here</a>.</p>
+<h2>Chrome Switches</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+b = Watir::Browser.new :chrome, :switches =&gt; %w[--ignore-certificate-errors --disable-popup-blocking --disable-translate]<br />
+[/sourcecode]</p>
+<p>See the full list of switches <a href="http://src.chromium.org/svn/trunk/src/chrome/common/chrome_switches.cc" title="chrome_switches.cc">here</a>.</p>
+<h2>Using a proxy with Chrome</h2>
+<p>[sourcecode language="ruby" light="true"]<br />
+b = Watir::Browser.new :chrome, :switches =&gt; %w[--proxy-server=myproxy.com:8080]<br />
+[/sourcecode]</p>

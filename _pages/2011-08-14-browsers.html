@@ -1,0 +1,24 @@
+---
+layout: page
+title: Browsers
+date: 2011-08-14 20:20:12.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '19425456'
+  _wp_page_template: default
+author: 
+---
+<p>Watir-WebDriver supports the browsers that WebDriver supports.</p>
+<h1>Firefox</h1>
+<p>Firefox is supported through a JavaScript driver, therefore 'it just works™' on all platforms.</p>
+<pre>b = Watir::Browser.new :firefox</pre>
+<h1>Chrome</h1>
+<p>Chrome support is through the platform specific ChromeDriver binary, which you <a href="http://code.google.com/p/chromium/downloads/list">download</a> and put on your path.</p>
+<pre>b = Watir::Browser.new :chrome</pre>
+<h1>Internet Explorer</h1>
+<p>Internet Explorer should just work, as long as the protected mode setting is the same for every internet zone (all on, or all off).</p>
+<pre>b = Watir::Browser.new :ie</pre>

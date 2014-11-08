@@ -1,0 +1,21 @@
+---
+layout: nav_menu_item
+title: Elements
+date: 2011-08-14 21:11:45.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: nav_menu_item
+published: true
+meta:
+  _menu_item_type: post_type
+  _menu_item_menu_item_parent: '270'
+  _menu_item_object_id: '22'
+  _menu_item_object: page
+  _menu_item_target: ''
+  _menu_item_classes: a:1:{i:0;s:0:"";}
+  _menu_item_xfn: ''
+  _menu_item_url: ''
+author: 
+---
+<p>Text Fields Select Lists – Combos Checkboxes &amp; Radios Buttons &amp; Links Divs &amp; Spans WYSIWYG Editors There are two ways to enter text into a WYSIWYG editor using Watir-WebDriver: locate the iFrame, and use .send_keys to enter text execute javascript on the browser object that sets the value of the WYSIWYG editor CKEditor [sourcecode language="ruby" light="true"] require ‘watir-webdriver’ b = Watir::Browser.new :firefox b.goto ‘http://ckeditor.com/demo’ b.execute_script(“CKEDITOR.instances['editor1'].setData(‘hello world’);”) b.frame(:title =&gt; ‘Rich text editor, editor1, press ALT 0 for help.’).send_keys ‘hello world again’ [/sourcecode] TinyMCE Editor [sourcecode language="ruby" light="true"] require ‘watir-webdriver’ b = Watir::Browser.new b.goto ‘http://tinymce.moxiecode.com/tryit/full.php’ b.execute_script(“tinyMCE.get(‘content’).execCommand(‘mceSetContent’,false, ‘hello world’ );”) b.frame(:id =&gt; “content_ifr”).send_keys ‘hello world again’ [/sourcecode]</p>

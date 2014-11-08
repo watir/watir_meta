@@ -1,0 +1,24 @@
+---
+layout: page
+title: Cookies
+date: 2012-02-01 20:53:24.000000000 +01:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _wp_page_template: default
+  _edit_last: '3698964'
+  geo_public: '0'
+author: 
+---
+<p>There is a cookie API in Watir-WebDriver 0.5.2 onwards, that is easy to use.</p>
+<p>[sourcecode language="ruby" light="true"]<br />
+require 'watir-webdriver'<br />
+browser = Watir::Browser.new<br />
+browser.cookies.clear<br />
+browser.cookies.add 'foo', 'bar', :path =&gt; &quot;/&quot;, :expires =&gt; 10.days.from_now, :secure =&gt; true<br />
+browser.cookies.delete 'foo'<br />
+browser.cookies.to_a<br />
+[/sourcecode]</p>
