@@ -1,8 +1,2 @@
-pkg/*
-*.gem
-.bundle
-coverage
-rdoc
-.yardoc
-Gemfile.lock
-.idea/*
+_site
+.sass-cache
