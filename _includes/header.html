@@ -20,6 +20,12 @@
           {% endif %}
         {% endfor %}
       </div>
+
+      <div class="trigger">
+        {% for category in site.categories %}
+          <a class="page-link" href="{{ site.baseurl }}/{{ category | first }}">{{ category | first }}</a>
+        {% endfor %}
+      </div>
     </nav>
 
   </div>
