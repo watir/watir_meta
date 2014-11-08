@@ -57,9 +57,9 @@ When /^I submit the form with correct data$/ do<br />
 end<br />
 [/sourcecode]</p>
 <p>This is all well and good, as you can now have multiple cucumber steps that call the same thing, it's <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>ish, but the problem is when you run the step "When I submit the form with correct data", that's all you get.</p>
-<p><a href="http://watirmelon.files.wordpress.com/2010/12/declarative-results.png"><img class="alignleft size-full wp-image-563" title="declarative results" src="assets/declarative-results.png" alt="" width="640" height="156" /></a></p>
+<p><a href="http://watirmelon.files.wordpress.com/2010/12/declarative-results.png"><img class="alignleft size-full wp-image-563" title="declarative results" src="/watir/assets/declarative-results.png" alt="" width="640" height="156" /></a></p>
 <p>Compare this to the imperative step results, which whilst calling exactly the same code, give you a lot more richness.</p>
-<p><a href="http://watirmelon.files.wordpress.com/2010/12/imperative-results.png"><img class="alignleft size-full wp-image-564" title="imperative results" src="assets/imperative-results.png" alt="" width="640" height="167" /></a></p>
+<p><a href="http://watirmelon.files.wordpress.com/2010/12/imperative-results.png"><img class="alignleft size-full wp-image-564" title="imperative results" src="/watir/assets/imperative-results.png" alt="" width="640" height="167" /></a></p>
 <p><strong>Writing imperative scenarios allow you to utilise things advanced cucumber functionality</strong></p>
 <p>Two table based Cucumber features I like using are <a href="https://github.com/aslakhellesoy/cucumber/wiki/scenario-outlines">scenario outlines</a>, and <a href="https://github.com/aslakhellesoy/cucumber/wiki/multiline-step-arguments">multiline step arguments</a>, but these don't make a lot of sense if you're using a declarative style.<br />
 For example, the imperative scenario could be easily adapted to use a scenario outline, whereas the declarative style would mean writing more declarative steps.</p>
