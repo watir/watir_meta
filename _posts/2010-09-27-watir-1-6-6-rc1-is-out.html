@@ -1,0 +1,47 @@
+---
+layout: post
+title: Watir 1.6.6 RC1 is out
+date: 2010-09-27 09:55:08.000000000 +02:00
+categories:
+- Releases
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '27048'
+  _wp_old_slug: ''
+  _wpas_done_twitter: '1'
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1341302634";}
+author: 
+---
+<p>Watir 1.6.6 RC1 has been released. See full details on <a href="http://groups.google.com/group/watir-general/browse_thread/thread/7124525f9775a0ba">Google Groups</a>.</p>
+<p>Improvements include:</p>
+<p><strong>Version 1.6.6</strong></p>
+<p><strong>IE improvements</strong></p>
+<ul>
+<li>#elements_by_xpath uses now Nokogiri's xpath method instead of search (Matt Baker)</li>
+<li> Element#style returns now currentStyle. Closes http://jira.openqa.org/browse/WTR-444 (Jarmo Pertman)</li>
+<li> Element#visible? doesn't return false anymore for disabled elements (Charley Baker)</li>
+<li>TH elements texts are included into Table#to_a results. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>Added TableRow#to_a method which returns an array of the texts of the cells for the table row. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>Added an optional numeric parameter max_depth for Table#to_a and TableRow#to_a for getting text values for nested tables. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>#close will close the browser even if #wait raises an Exception. Closes http://jira.openqa.org/browse/WTR-443 (Jarmo Pertman)</li>
+<li> Added #element and #elements methods for locating non-specific elements. Closes http://jira.openqa.org/browse/WTR-103 (Hugh McGowan)</li>
+<li>#click_no_wait fixes and improvements. Closes http://jira.openqa.org/browse/WTR-320 and http://jira.openqa.org/browse/WTR-449 (Jarmo Pertman)</li>
+<li>#wait will raise a Timeout::Error if page hasn't been loaded within 5 minutes. Closes http://jira.openqa.org/browse/WTR-452 (Bret)</li>
+<li>Fixed a problem when #wait blocked forever. Closes http://jira.openqa.org/browse/WTR-446 (Jarmo Pertman)</li>
+</ul>
+<p><strong>Firefox improvements</strong></p>
+<ul>
+<li>Added close_all method to firefox. Closes http://jira.openqa.org/browse/WTR-222 (Angrez)</li>
+<li>Fixed status method for firefox.  (Angrez)</li>
+<li>Fixed url method for firefox. Closes http://jira.openqa.org/browse/WTR-428 (Alister Scott)</li>
+<li>Added JRuby support (Ian Dees)</li>
+<li>Forcing to use ActiveSupport 2.3.9 due to incompatibilities with newer versions (Jarmo Pertman)</li>
+</ul>
+<p><strong>Cleanup &amp; Maintenance</strong></p>
+<ul>
+<li>Some rdoc cleanup (marekj)</li>
+<li>Removed Watir::Utils (Jarmo Pertman)</li>
+</ul>

@@ -1,0 +1,126 @@
+---
+layout: post
+title: Watir 3 Released!
+date: 2012-04-24 18:46:59.000000000 +02:00
+categories:
+- Releases
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '419467'
+  _oembed_fd8715ebefb34138645f014d3d638582: "{{unknown}}"
+  _oembed_c09b282595617314ec83fb6e2eabb711: "{{unknown}}"
+  _oembed_608bfa1e7f293c4211d4ebb2b47a5de8: "{{unknown}}"
+  _oembed_d76d53f8b90e99e1085875444b2b4395: "{{unknown}}"
+  _oembed_c46c8adebc09c6e7e7c8cb45c56722ed: "{{unknown}}"
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1404941971;}
+  _oembed_896046650ca411bbb149b8690ae15971: "{{unknown}}"
+  _oembed_d7d37dd610846c10ab4be42850f865c8: "{{unknown}}"
+  _oembed_59e6ac92c088d80907df2272f039e2e8: "{{unknown}}"
+  _oembed_76c99d00680980b177e3ea7920a8b0e1: "{{unknown}}"
+  _oembed_a9dd2b2bfb1a23b1399539347ab0877c: "{{unknown}}"
+  _oembed_b9f1e0a9f39f3602923e0c607aea4cb3: "{{unknown}}"
+  _oembed_0fa890c55f0832d93e04f81496455212: "{{unknown}}"
+  _oembed_4390d8ae182319a17064ed41b65ad5f7: "{{unknown}}"
+  _oembed_eb3850153c0ad32bbb5d261f3d70fc92: "{{unknown}}"
+  _oembed_882fc61d38b784bedf5d032673f438b7: "{{unknown}}"
+  _oembed_0e5b897f352be84535e35dcda6eb81fe: "{{unknown}}"
+author: 
+---
+<p>Hello everyone! </p>
+<p>I'm happy to announce that Watir 3 has been finally released!<br />
+Its biggest goal is to conform even better with WatirSpec making it more<br />
+compliant with Watir-WebDriver. </p>
+<p>Changelog is quite long, but reading it makes your life easier:<br />
+* Browser#status returns an empty string if status bar is disabled in IE9<br />
+* Browser#style fixed for IE9<br />
+* #execute_script evaluates JavaScript code inside of an anonymous function<br />
+- use "return" statement if value is needed by Ruby<br />
+* #execute_script returns nil instead of 'undefined'<br />
+* drag and drop fixed for IE9<br />
+* Window#current? and Window#== are more robust<br />
+* all html elements are now supported (even html5 ones)<br />
+* CookieManager removed<br />
+* cookies API support added (<br />
+https://github.com/watir/watirspec/blob/master/cookies_spec.rb)<br />
+* drag and drop API support added (<br />
+https://github.com/watir/watirspec/blob/master/drag_and_drop_spec.rb)<br />
+* Element#(before|after)? removed<br />
+* Element#(before|after)_text removed<br />
+* Browser#cell(s) and Browser#row(s) removed<br />
+* Browser#Element camelCase methods removed, use under_score methods instead<br />
+* Browser#element(s) supports only general attributes like :id, :title,<br />
+:class_name, :text, :html and such<br />
+* Browser#modal_dialog improved<br />
+* Browser#send_keys and Element#send_keys have now same syntax as specified<br />
+in WatirSpec<br />
+* Element#style returns internal styles only for IE9, inline style will be<br />
+returned for IE8<br />
+* Table#each removed - use Table#(trs|rows).each instead<br />
+* Table#row(s) and Table#cell(s) added which ignore inner tables - use<br />
+#td/#tr for all.<br />
+* raise an Exception if more locators are specified with :xpath/:css<br />
+* searching by :xpath and :css code rewritten<br />
+* Browser#textarea(s) method for searching  elements<br />
+* Element#focus works with IE9<br />
+* Element#focused? returns the state of focus on that element<br />
+* Element#to_subtype returns Element if non-supported tag found instead of<br />
+crashing<br />
+* searching by :class will match now partially like other tools behave<br />
+(e.g. jQuery)<br />
+* Button#text returns value if exists instead of text<br />
+* Browser#goto prepends url automatically with http:// if scheme is missing<br />
+* Browser#element(s)_by_(xpath/css) are now private methods - use<br />
+#element(:css =&gt; ...) and #element(:xpath =&gt; ...) instead<br />
+* Browser#label supports searching by :for attribute<br />
+* Browser#options method for searching  elements<br />
+* Browser#body, #thead, #tfoot, #tbody, #frameset and #fieldset added<br />
+* Browser#window and Browser#windows added implementing window switching<br />
+API (https://github.com/jarib/watirspec/blob/master/window_switching_spec.rb<br />
+)<br />
+* Element#present? returns false if exception is thrown by #exists? or<br />
+#visible?<br />
+* Element#style returns CSS text instead of OLE object<br />
+* Element#text returns an empty string for non-visible elements<br />
+* Element#parent returns correct instance of Element class (e.g. Div<br />
+instead of Element)<br />
+* Element#focus focuses document before focusing on the element<br />
+* Element#right_click and Element#double_click added<br />
+* Element#to_subtype added which returns specific instance of<br />
+Watir::Element subclass<br />
+* Element#send_keys added<br />
+* Element#eql? as an alias for Element#== added<br />
+* Element#tag_name added<br />
+* ElementCollection#[] method supports negative indexes like regular Arrays<br />
+* ElementCollection#[] returns always an object, even if the index is out<br />
+of bounds<br />
+* FileField#set and Image#save uses correct Windows file path (e.g. convert<br />
+"\"-es into "/"-es)<br />
+* FileField#set raises Errno::ENOENT instead of WatirException if file<br />
+doesn't exist<br />
+* FileField#value= as an alias for FileField#set added<br />
+* Font#color, #face and #size added<br />
+* Form#submit triggers onSubmit event and doesn't submit the form if<br />
+event's callback returns false<br />
+* Frame#execute_script added<br />
+* Image#file_size, #height and #width return integer instead of a string<br />
+* Image#save blocking fixed<br />
+* Meta#content and #http_equiv added<br />
+* Option code rewritten, causing changes in its API<br />
+* SelectList code rewritten, causing changes in its API<br />
+* SelectList#(selected_)options returns now Options collection instead of<br />
+an array of strings<br />
+* Table and its subelements code rewritten, causing changes in its API<br />
+* Table#strings and #hashes added<br />
+* TextField#label added<br />
+* searching elements will find only correct types - e.g. using Browser#div<br />
+returns only DIV element even if all other provided selectors match<br />
+* all selectors and tag of the element needs to match even if searching by<br />
+:id<br />
+* supporting html5 data-* attributes by using :data_* for locating and<br />
+#data_* for retrieving attribute values<br />
+* many other internal changes </p>
+<p>Please try it out by executing:<br />
+<code>gem install watir</code></p>

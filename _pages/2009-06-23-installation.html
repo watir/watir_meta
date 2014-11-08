@@ -1,0 +1,52 @@
+---
+layout: page
+title: Installation
+date: 2009-06-23 10:20:07.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '37723313'
+  _wp_page_template: sidebar-page.php
+  _oembed_0c935469a34c434cd0a92addfde27c63: "{{unknown}}"
+  _oembed_9486f7452b147c55800be3e85f358601: "{{unknown}}"
+  _oembed_7e70a748a6a16da4b8c5473d9a4536c5: "{{unknown}}"
+author: 
+---
+<p>For up to date installation instructions download <a href="https://leanpub.com/watirbook">Homebrewer's Guide to Watir</a> book. You can download the book for free. If you buy the book the money goes to Watir project.</p>
+<h1>Troubleshooting</h1>
+<p>Visit the following links for having trouble with installation:</p>
+<ul>
+<li>Watir <a href="https://github.com/watir/watir/wiki/FAQ">FAQ</a></li>
+<li>Watir <a href="https://github.com/watir/watir/wiki/Installation-Issues">Installation Issues</a></li>
+</ul>
+<h1>Installing Behind an Authenticating Proxy</h1>
+<p>Watir drivers are packaged as <em>gems</em>, Ruby libraries that can be installed over the internet. If installing behind an <strong>authenticating proxy</strong>, first set the HTTP_PROXY environment variable:</p>
+<p>Windows:</p>
+<pre><code>set HTTP_PROXY=http://username:password@your.proxy.com:80</code></pre>
+<p>Linux:</p>
+<pre><code>export http_proxy=http://username:password@your.proxy.com:80</code></pre>
+<h1>Tips</h1>
+<h1>Install Ruby on Linux</h1>
+<p>Use your relevant package manager to update or install Ruby with the following at a terminal window:</p>
+<pre><code>sudo apt-get install ruby  # for Ubuntu / Debian users</code>
+<code>sudo yum install ruby      # for Red Hat / Fedora users</code></pre>
+<h1>Update RubyGems on Linux</h1>
+<p>Make sure you have the latest rubygems version 1.3.7 or above installed. Use your relevant package manager to install the latest version with the following at a terminal window:</p>
+<pre><code>sudo apt-get install rubygems </code><code># for Ubuntu / Debian users</code>
+<code>sudo yum install rubygems </code><code> # for Red Hat / Fedora users</code></pre>
+<h1>Install a HTML Inspector</h1>
+<p>To use Watir effectively, you’ll need to be able to browse through the structure of your application’s HTML pages. These tools help you do that.</p>
+<ul>
+<li>On Firefox, use <a href="http://getfirebug.com/">Firebug</a></li>
+<li>On Internet Explorer, use the <a href="https://github.com/watir/watir/wiki/Browser-Development-Toolbar">IE Developer Toolbar</a></li>
+</ul>
+<h1>Installing or Updating RubyGems</h1>
+<p>While updating <a href="http://rubygems.org/">RubyGems</a>, or installing any of the gems, you can use the following additional flags:</p>
+<blockquote><p><code>--no-rdoc --no-ri</code></p></blockquote>
+<p>For example:</p>
+<blockquote><p><code>gem update --system --no-rdoc --no-ri</code><br />
+<code>gem install watir --no-rdoc --no-ri</code></p></blockquote>
+<p>It will be much faster, but you will not install <a href="http://rdoc.sourceforge.net/">RDoc</a> and <a href="http://www.caliban.org/ruby/rubyguide.shtml#ri">ri</a>.</p>

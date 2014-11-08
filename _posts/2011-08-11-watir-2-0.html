@@ -1,0 +1,69 @@
+---
+layout: post
+title: Watir 2.0
+date: 2011-08-11 08:36:44.000000000 +02:00
+categories:
+- Releases
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '13848153'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1372400292;}
+  twitter_cards_summary_img_size: a:7:{i:0;i:240;i:1;i:240;i:2;i:2;i:3;s:24:"width="240"
+    height="240"";s:4:"bits";i:8;s:8:"channels";i:3;s:4:"mime";s:10:"image/jpeg";}
+  _oembed_f84666c83b6cd640afaeb8147e069403: "{{unknown}}"
+  _oembed_189b6bf4c5d7c0a52d3f0494a2896db6: "{{unknown}}"
+  _oembed_883d80180f3774c2cd33d3fd9a31324a: "{{unknown}}"
+  _oembed_9deabe06a7b7a2da3f4283a8ed3542a1: "{{unknown}}"
+author: 
+---
+<p><a title="number 2 by Leo Reynolds, on Flickr" href="http://www.flickr.com/photos/lwr/3334858673/"><img src="assets/3334858673_81abd4e1ef_m.jpg" alt="number 2" width="240" height="240" /></a></p>
+<p><strong>Watir 2.0</strong></p>
+<p>Recently, Watir 2.0 got released! This post will try to explain all the important changes what this version brought to the automated testing world.</p>
+<p><strong>About FireWatir</strong></p>
+<p><a title="Old Hand Made Whiskey Bottle by millerm217, on Flickr" href="http://www.flickr.com/photos/mikepmiller/4494745111/"><img src="assets/4494745111_9a861f91d6_m.jpg" alt="Old Hand Made Whiskey Bottle" width="186" height="240" /></a></p>
+<p>There is no FireWatir 2.0 and there won't be any new releases of FireWatir anymore due to the fact that JSSH extension, which is used to control Firefox by FireWatir, is not available for Firefox versions 4 and newer. This means that we've decided that it's time for the FireWatir to retire. We've released a version 1.9.3 which doesn't have any new functionality, but has a less strict dependency requirement for common-watir gem so you could use Watir 2.0 and FireWatir 1.9.3 together in your Bundler's Gemfile if really needed. We recommend you to start using Watir-WebDriver Firefox driver instead if you want to test your application on Firefox.</p>
+<p><strong>Zero based indexing</strong></p>
+<p><a title="10 by cute raco girl, on Flickr" href="http://www.flickr.com/photos/cute_raco_girl/2388152480/"><img src="assets/2388152480_86163b3804_m.jpg" alt="10" width="240" height="214" /></a></p>
+<p>The next big change is zero based indexing. As you might know then Watir has used one based indexing so far. For example, if you are using Watir 1.x and you'd like to access first <code>div</code> element on the page, you'd write code like this:</p>
+<p><code>browser.div(:index =&gt; 1)</code></p>
+<p>In Watir 2.0 and newer, you have to write code like this instead:</p>
+<p><code>browser.div(:index =&gt; 0)</code></p>
+<p>That change is done to be more compatible with Watir-WebDriver and the Ruby (and many other) programming language itself. For example, the first element in the array has an index of 0. That's it, no more remembering if the indexing started from 0 or 1 in Watir. It's consistently 0. This also applies to tables, rows and cells:</p>
+<p><code>table = browser.table(:class =&gt; "sometable")<br />
+# will get the first row<br />
+first_row = table[0]<br />
+# will get the first cell<br />
+first_cell = first_row[0]</code></p>
+<p>You can revert to one-based-indexing to make the integration from Watir 1.x to Watir 2.0 easier and faster for your existing tests by using a special option:</p>
+<p><code>require "watir"<br />
+Watir.options[:zero_based_indexing] = false</code></p>
+<p>Remember that this option will be probably removed in the not-too-soon-future, so you'd better edit your tests to start working with zero-based-indexing. I'm pretty sure you want to do that since starting from now Watir will become more and more compatible with Watir-WebDriver.</p>
+<p><strong>Multiple locators</strong></p>
+<p>Starting from Watir 2.0 ALL elements support multiple locators for searching. Even <code>browser#element</code>. In case you don't know what this feature is, then here is an example for searching for the <code>span</code> element with a specific <code>name</code> AND <code>class</code>:</p>
+<p><code># only span with name "something" AND class "else" will be found<br />
+browser.span(:name =&gt; "something", :class =&gt; "else")</code></p>
+<p>You can also search all elements by <code>:xpath</code> and <code>:css</code> locators now, but please remember that these are considerably slower than any other locators.</p>
+<p><strong>Locators for collections</strong></p>
+<p>When you were dealing with element collections in Watir 1.x then you had to use Ruby's Enumerable methods for filtering out elements with specific criteria. Let's say that we're interested only in the images, which have a <code>name</code> of <code>"logo"</code>:</p>
+<p><code>browser.images.find_all {|image| image.name == "logo"}.each do |image|<br />
+# only images with the name of "logo" will print out their html<br />
+puts image.html<br />
+end</code></p>
+<p>In Watir 2.0 you can also specify locators for the collections methods so it's a lot easier to filter out the elements in interest. The above example in Watir 2.0 would be:</p>
+<p><code>browser.images(:name =&gt; "logo").each do |image|<br />
+puts image.html<br />
+end</code></p>
+<p>Of course you can use multiple locators for the collection methods too!</p>
+<p><strong>Default locator</strong></p>
+<p>Have you done something like this in your tests:</p>
+<p><code>browser.span(:class =&gt; "something").div(:index =&gt; 1).span(:class =&gt; "else")</code></p>
+<p>Notice the usage of <code>:index =&gt; 1</code> to specify that the span with class <code>"else"</code> should be inside of the first <code>div</code>. In Watir 2.0 you can use the syntax below instead:</p>
+<p><code>browser.span(:class =&gt; "something").div.span(:class =&gt; "else")</code></p>
+<p>In other words - if no other locators are specified, then <code>:index =&gt; 0</code> will be used as a default. Convenient, eh?</p>
+<p><strong>Aliased methods</strong></p>
+<p>Have you typed <code>browser.tr</code> instead of <code>browser.row</code>? What about <code>browser.td</code> instead of <code>browser.cell</code>? Since most of the html elements are accessible by the same method name as their tag then it just makes sense to have methods for these elements too. In Watir 2.0 you can use <code>#tr</code>, <code>#trs</code>, <code>#td</code>, <code>#tds</code>, <code>#a</code>, <code>#as</code>, <code>#img</code> and <code>#imgs</code>! Consistency is good!</p>
+<p><strong>Conclusion</strong></p>
+<p>Watir 2.0 tries to be the best "driver" for IE browser by adding all these missing features and incompatibilities between Watir-WebDriver. Our goal is to minimize that gap even further. Stay tuned for future releases!</p>

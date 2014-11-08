@@ -1,0 +1,21 @@
+---
+layout: nav_menu_item
+title: ''
+date: 2011-01-09 04:05:54.000000000 +01:00
+categories: []
+tags: []
+status: publish
+type: nav_menu_item
+published: true
+meta:
+  _menu_item_type: post_type
+  _menu_item_menu_item_parent: '531'
+  _menu_item_object_id: '20'
+  _menu_item_object: page
+  _menu_item_target: ''
+  _menu_item_classes: a:1:{i:0;s:0:"";}
+  _menu_item_xfn: ''
+  _menu_item_url: ''
+author: 
+---
+<p>All examples are designed to work on the live Watir demo form: http://bit.ly/watir-example. Including Watir gem to drive Internet Explorer on Windows require ‘watir’ Including FireWatir gem to drive Firefox on Windows/Mac/Linux require ‘firewatir’ Starting a new browser &amp; and going to our site browser = Watir::Browser.new browser.goto(“http://bit.ly/watir-example”) Setting a text field browser.text_field(:name =&gt; “entry.0.single”).set “Watir” Setting a multi-line text box browser.text_field(:name =&gt; “entry.1.single”).set “I come here from Australia. n The weather is great here.” Setting and clearing a radio button browser.radio(:value =&gt; “Watir”).set browser.radio(:value =&gt; “Watir”).clear Setting and clearing check boxes browser.checkbox(:value =&gt; “Ruby”).set browser.checkbox(:value =&gt; “Python”).set browser.checkbox(:value =&gt; “Python”).clear Clicking a button browser.button(:name =&gt; “logon”).click Clearing, getting and selecting selection list values browser.select_list(:name =&gt; “entry.6.single”).clear puts browser.select_list(:name =&gt; “entry.6.single”).options browser.select_list(:name =&gt; “entry.6.single”).select “Chrome” Clicking a button browser.button(:name =&gt; “submit”).click Checking for text in a page puts browser.text.include? “Your response has been recorded.” Checking the title of a page puts browser.title == “Thanks!” There are several examples from the Watir community.</p>

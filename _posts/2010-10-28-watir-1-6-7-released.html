@@ -1,0 +1,56 @@
+---
+layout: post
+title: Watir 1.6.7 released
+date: 2010-10-28 06:36:47.000000000 +02:00
+categories:
+- Releases
+tags:
+- 1.6.7
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '27048'
+  _wp_old_slug: ''
+  _wpas_done_twitter: '1'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1367566017;}
+  _oembed_bcfe2dd6e303786a70a818429a2c8cd4: "{{unknown}}"
+  _oembed_114e79e7503c066c506457153eeb82e1: "{{unknown}}"
+  _oembed_4c224de3adec7f02a6c1881283dbf217: "{{unknown}}"
+  _oembed_e192706c74b84dde5a487f137a68e5a1: "{{unknown}}"
+author: 
+---
+<p>Hello, everyone!</p>
+<p>Watir 1.6.7 got just released!</p>
+<p><strong>General improvements</strong></p>
+<ul>
+<li> added new waiting methods for Watir::Element: #when_present, #wait_until_present and #wait_while_present (Jari Bakken and Jarmo Pertman)</li>
+<li>added new waiting methods for Watir::IE and Watir::Firefox: #wait_until and #wait_while (Jari Bakken and Jarmo Pertman)</li>
+<li>added method #present? for Watir::Element (Jari Bakken and Jarmo Pertman)</li>
+<li>deprecated old waiting methods in Watir::Waiter which will be removed in some future version - use Watir::Wait instead (Jarmo Pertman)</li>
+</ul>
+<p><strong>IE improvements</strong></p>
+<ul>
+<li> removed Watir::Simple (Željko Filipin)</li>
+<li>#click_no_wait was not working with frame elements. Closes<a href="http://jira.openqa.org/browse/WTR-459" target="_blank"> http://jira.openqa.org/browse/WTR-459</a> (Jarmo Pertman)</li>
+</ul>
+<p><strong>Firefox improvements</strong></p>
+<ul>
+<li> get_attribute_value now works with attributes named something like "foo-bar" (Alan Shields)</li>
+</ul>
+<p><strong>Cleanup &amp; Maintenance</strong></p>
+<ul>
+<li> cleaned up repo at GitHub</li>
+<li>merge licenses into one (Željko Filipin)</li>
+<li>Rakefile works now under non-Windows systems too (Alan Shields)</li>
+<li>Removed datahandler.rb (Charley Baker)</li>
+</ul>
+<p>Install it with:<br />
+<code><br />
+gem install watir<br />
+</code><br />
+And run your existing tests.</p>
+<p>If you're seeing any problems then don't forget to open a ticket at JIRA (<a href="http://jira.openqa.org/browse/WTR" target="_blank">http://jira.openqa.org/browse/WTR</a>) or fork the project on GitHub<br />
+(<a href="http://github.com/bret/watir" target="_blank">http://github.com/bret/watir</a>) and send us a pull request with the fix!<br />
+If you have any problems installing Watir, then read more detailed instructions at <a href="http://watir.com/installation/" target="_blank">http://watir.com/installation/</a></p>
+<p>~ Watir Development Team</p>

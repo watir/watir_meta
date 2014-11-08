@@ -1,0 +1,76 @@
+---
+layout: post
+title: Watir 1.6.6 final released
+date: 2010-10-04 14:04:38.000000000 +02:00
+categories:
+- Releases
+tags:
+- 1.6.6
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '27048'
+  _wp_old_slug: ''
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1364916347;}
+  _oembed_bc66fa625d3844cccfa29cb4f0f3736c: "{{unknown}}"
+  _oembed_4c224de3adec7f02a6c1881283dbf217: "{{unknown}}"
+  _oembed_114e79e7503c066c506457153eeb82e1: "{{unknown}}"
+  _oembed_990652fe41703a3845b5947a1f85a224: "{{unknown}}"
+author: 
+---
+<p>Hello (fire)watirists!</p>
+<p>We are happy to announce that a (very) long-waited (Fire)Watir 1.6.6 final gem is out!</p>
+<p>You can check out changelog at <a href="http://github.com/bret/watir/blob/master/CHANGES">http://github.com/bret/watir/blob/master/CHANGES</a></p>
+<p>Feel free to give it a test drive. Here are the basic instructions.</p>
+<p>Make sure your local gem system is up to date.</p>
+<p><code>gem update --system</code></p>
+<p>run <code>gem -v</code> at the command line, you should be running 1.3.7</p>
+<p>Windows:</p>
+<p><code>gem install watir</code></p>
+<p>Mac or Linux:</p>
+<p><code>sudo gem install firewatir</code></p>
+<p>...and give it a go. Try to use it with your existing test suites and so on to see if there are any issues.</p>
+<p>If there are any problems then:</p>
+<ol>
+<li>Fix it and send a pull request on Github, our main github repo: <a href="http://github.com/bret/watir">http://github.com/bret/watir</a> This is the preferred way of accepting patches, we're happy to work with you on how to do this, github also has extensive docs on how to fork and submit a pull request.</li>
+<li>Add it to our JIRA tracker: <a href="http://jira.openqa.org/browse/WTR">http://jira.openqa.org/browse/WTR</a> If you need help with that let us know.</li>
+</ol>
+<p>If you do have time and can help, please let us know, we can take any help from documentation to running tests on various OSes. We're a friendly project and would be happy to mentor you if you and/or your company is willing to put in the time.</p>
+<p>Cheers,</p>
+<p><a href="http://watir.com/team/">The Watir Team</a></p>
+<p>Update: The following functionality is included.</p>
+<p><strong>Version 1.6.6<br />
+</strong></p>
+<p><strong>IE improvements</strong></p>
+<ul>
+<li>#elements_by_xpath uses now Nokogiri's xpath method instead of search (Matt Baker)</li>
+<li>Element#style returns now currentStyle. Closes http://jira.openqa.org/browse/WTR-444 (Jarmo Pertman)</li>
+<li>Element#visible? doesn't return false anymore for disabled elements (Charley Baker)</li>
+<li>TH elements texts are included into Table#to_a results. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>Added TableRow#to_a method which returns an array of the texts of the cells for the table row. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>Added an optional numeric parameter max_depth for Table#to_a and TableRow#to_a for getting text values for nested tables. Closes http://jira.openqa.org/browse/WTR-445 (Jarmo Pertman)</li>
+<li>#close will close the browser even if #wait raises an Exception. Closes http://jira.openqa.org/browse/WTR-443 (Jarmo Pertman)</li>
+<li>Added #element and #elements methods for locating non-specific elements. Closes http://jira.openqa.org/browse/WTR-103 (Hugh McGowan)</li>
+<li>#click_no_wait fixes and improvements. Closes http://jira.openqa.org/browse/WTR-320 and http://jira.openqa.org/browse/WTR-449 (Jarmo Pertman)</li>
+<li>#wait will raise a Timeout::Error if page hasn't been loaded within 5 minutes. Closes http://jira.openqa.org/browse/WTR-452 (Bret)</li>
+<li>Fixed a problem when #wait blocked forever. Closes http://jira.openqa.org/browse/WTR-446 (Jarmo Pertman)</li>
+</ul>
+<p><strong>Firefox improvements</strong></p>
+<ul>
+<li> Added close_all method to firefox. Closes http://jira.openqa.org/browse/WTR-222 (Angrez)</li>
+<li>Fixed status method for firefox. (Angrez)</li>
+<li>Fixed url method for firefox. Closes http://jira.openqa.org/browse/WTR-428 (Alister Scott)</li>
+<li>Added JRuby support (Ian Dees)</li>
+<li>Forcing to use ActiveSupport 2.3.9 due to incompatibilities with newer versions (Jarmo Pertman)</li>
+</ul>
+<p><strong>Cleanup &amp; Maintenance</strong></p>
+<ul>
+<li> Some rdoc cleanup (marekj)</li>
+<li>README changes (Željko Filipin)</li>
+<li>Removed Watir::Utils (Jarmo Pertman)</li>
+<li>It is now possible to execute unit-tests within gems with `rake test` (Jarmo Pertman)</li>
+<li>Don't output unnecessary information to stdout in FireWatir unit-tests (Željko Filipin)</li>
+<li>Update the 3 gem projects to each use the common readme file (Bret)</li>
+</ul>
+<p>The whole Changelog is available at <a href="http://github.com/bret/watir/compare/v1.6.5...v1.6.6">http://github.com/bret/watir/compare/v1.6.5...v1.6.6</a></p>

@@ -1,0 +1,58 @@
+---
+layout: page
+title: Examples
+date: 2009-06-11 11:23:19.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '37723313'
+  _wp_page_template: sidebar-page.php
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1332622640";}
+  twitter_cards_summary_img_size: a:6:{i:0;i:175;i:1;i:72;i:2;i:3;i:3;s:23:"width="175"
+    height="72"";s:4:"bits";i:8;s:4:"mime";s:9:"image/png";}
+author: 
+---
+<p>All examples are designed to work on the live Watir demo form: <a href="http://bit.ly/watir-example"><strong>http://bit.ly/watir-example</strong></a>.</p>
+<h2>Loading RubyGems</h2>
+<p>If you're a first time Ruby user, you need to understand how to load Ruby gems such as Watir. You can require it via the <code>-rubygems</code> command line option or by using the <code>RUBYOPT</code> environment variable. You can also require it manually in your script:</p>
+<p><code>require 'rubygems'</code></p>
+<p>For more information <a href="http://docs.rubygems.org/read/chapter/3#page70">see here</a>.</p>
+<h2>Including Watir gem to drive Internet Explorer on Windows</h2>
+<p><code>require 'watir'</code></p>
+<h2>Including <a href="http://watirwebdriver.com/">Watir-WebDriver</a> gem to drive Firefox/Chrome on Windows/Mac/Linux</h2>
+<p><code>require 'watir-webdriver'</code></p>
+<h2>Starting a new browser &amp; and going to our site</h2>
+<p><code>browser = Watir::Browser.new<br />
+browser.goto 'http://bit.ly/watir-example'</code></p>
+<h2>Setting a text field</h2>
+<p><img title="Text Field" alt="Text Field" src="assets/text-field.png" /><br />
+<code>browser.text_field(:name =&gt; 'entry.0.single').set 'Watir'</code></p>
+<h2>Setting a multi-line text box</h2>
+<p><img title="Text Box" alt="Text Box" src="assets/text-box1.png" /><br />
+<code>browser.text_field(:name =&gt; 'entry.1.single').set "I come here from Australia. \n The weather is great here."</code></p>
+<h2>Setting and clearing a radio button</h2>
+<p><img title="Radio Buttons" alt="Radio Buttons" src="assets/radio-buttons1.png" /><br />
+<code>browser.radio(:value =&gt; 'Watir').set<br />
+browser.radio(:value =&gt; 'Watir').clear</code></p>
+<h2>Setting and clearing check boxes</h2>
+<p><img title="Checkboxes" alt="Checkboxes" src="assets/checkboxes.png" /><br />
+<code>browser.checkbox(:value =&gt; 'Ruby').set<br />
+browser.checkbox(:value =&gt; 'Python').set<br />
+browser.checkbox(:value =&gt; 'Python').clear</code></p>
+<h2>Clicking a button</h2>
+<p><code>browser.button(:name =&gt; 'logon').click</code></p>
+<h2>Clearing, getting and selecting selection list values</h2>
+<p><img title="Selection List" alt="Selection List" src="assets/selection-list.png" /><br />
+<code>browser.select_list(:name =&gt; 'entry.6.single').clear<br />
+puts browser.select_list(:name =&gt; 'entry.6.single').options<br />
+browser.select_list(:name =&gt; 'entry.6.single').select 'Chrome'</code></p>
+<h2>Clicking a button</h2>
+<p><img title="Button" alt="Button" src="assets/button.png" /><br />
+<code>browser.button(:name =&gt; 'submit').click</code></p>
+<h2>Checking for text in a page</h2>
+<p><code>puts browser.text.include? 'Your response has been recorded.'</code></p>
+<h2>Checking the title of a page</h2>
+<p><code>puts browser.title == 'Thanks!'</code></p>

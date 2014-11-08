@@ -1,0 +1,40 @@
+---
+layout: post
+title: watir-webdriver 0.5.2
+date: 2012-02-01 15:25:15.000000000 +01:00
+categories:
+- Releases
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '419467'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1378039529;}
+author: 
+---
+<p><a href="http://www.flickr.com/photos/johnkay/3305073331/" title="Shower Water Snake feeding :) by Images by John 'K', on Flickr"><img src="assets/3305073331_149a4d746f_m.jpg" width="240" height="240" alt="Shower Water Snake feeding :)" /></a></p>
+<p><a href="https://rubygems.org/gems/watir-webdriver">watir-webdriver 0.5.2</a> has been released.</p>
+<p>Please note that watir-webdriver 0.5.0 brings some backwards incompatible changes:</p>
+<ul>
+<li><a href="https://github.com/watir/watir-webdriver/issues/21"><code>Watir::Select#selected_options</code> no longer returns array of strings, but array of <code>Watir::Option</code> objects</a></li>
+<li><a href="https://github.com/watir/watir-webdriver/issues/36">Finding elements by <code>:class</code> now matches partial class attributes.</a></li>
+</ul>
+<p>Additionally, watir-webdriver 0.5.1 removes the following deprecated methods:</p>
+<ul>
+<li><code>element_by_xpath</code> replaced by <code>.element(:xpath, '...')</code></li>
+<li><code>elements_by_xpath</code> replaced by <code>.elements(:xpath, '...')</code></li>
+</ul>
+<p>And deprecates the following methods:</p>
+<ul>
+<li><a href="https://github.com/watir/watir-webdriver/issues/24"><code>Browser#clear_cookies</code> - replaced by <code>Browser#cookies</code> API</a></li>
+</ul>
+<p>Install it with</p>
+<p><code>gem install watir-webdriver</code></p>
+<p>As usual: </p>
+<ul>
+<li>see build history at <a href="http://travis-ci.org/#!/watir/watir-webdriver/builds">travis-ci.org/#!/watir/watir-webdriver/builds</a> (wait for a few seconds until older builds appear)</li>
+<li>see all the changes at <a href="https://github.com/watir/watir-webdriver/commits/master/">github.com/watir/watir-webdriver/commits/master/</a></li>
+<li>updated API documentation is at <a href="http://rubydoc.info/gems/watir-webdriver">rubydoc.info/gems/watir-webdriver</a></li>
+</ul>
+<p />

@@ -1,0 +1,112 @@
+---
+layout: page
+title: Frameworks
+date: 2011-05-02 03:03:39.000000000 +02:00
+categories: []
+tags: []
+status: publish
+type: page
+published: true
+meta:
+  _edit_last: '37723313'
+  _wp_page_template: sidebar-page.php
+  _oembed_704cadc18f949c192f7a52ea3f264a24: "{{unknown}}"
+  _oembed_707c3dc7982cab9b5b81a17fcf05d007: "{{unknown}}"
+  _oembed_505c8eda72ab693c880280d082c2e06b: "{{unknown}}"
+  _oembed_fd57b9ea528b41f260de6ee3ce57aeeb: "{{unknown}}"
+  _oembed_7f931a36cdbbb78d4eff56138e201287: "{{unknown}}"
+author: 
+---
+<p>Put simply, Watir is a browser driver. Lightweight and simple to use, Watir excels at automating modern browsers. Built in Ruby, it also works well with other testing frameworks and solutions in the Ruby ecosystem. This section explores frameworks which are compatible with Watir including:</p>
+<p>1. <a href="#rspec">RSpec</a> - Behaviour driven development<br />
+2. <a href="#cucumber">Cucumber</a> - Business readable behaviour driven development<br />
+3. <a href="#test_unit">Test/Unit</a> - Basic unit testing framework</p>
+<h1 id="rspec">RSpec</h1>
+<p>RSpec is a Behaviour-Driven Development tool for Ruby programmers. BDD is an approach to software development that combines Test-Driven Development, Domain Driven Design, and Acceptance Test-Driven Planning. RSpec helps you do the TDD part of that equation, focusing on the documentation and design aspects of TDD. The following code demonstrates using Watir and a basic RSpec example.<br />
+<a href="http://rspec.info/">More info ...</a></p>
+<h2>Install</h2>
+<pre><code>gem install rspec</code></pre>
+<h2>Example</h2>
+<pre><code>rspec test_spec.rb</code></pre>
+<p>will execute the following rspec example ...</p>
+<p><strong>test_spec.rb</strong></p>
+<p>[code language="ruby"]<br />
+require &quot;rubygems&quot;<br />
+require &quot;rspec&quot;<br />
+require &quot;watir-webdriver&quot;</p>
+<p>describe &quot;google.com&quot; do<br />
+  let(:browser) { @browser ||= Watir::Browser.new :firefox }<br />
+  before { browser.goto &quot;http://google.com&quot; }<br />
+  after { browser.close }</p>
+<p>  it &quot;should search for watir&quot; do<br />
+    browser.text_field(:name =&gt; &quot;q&quot;).set &quot;watir&quot;<br />
+    browser.button.click<br />
+    browser.div(:id =&gt; &quot;resultStats&quot;).wait_until_present<br />
+    browser.title.should == &quot;watir - Google Search&quot;<br />
+  end<br />
+end<br />
+[/code]</p>
+<h1 id="cucumber">Cucumber</h1>
+<p>Cucumber lets software development teams describe how software should behave in plain text. The text is written in a business-readable domain-specific language and serves as documentation, automated tests and development-aid - all rolled into one format.<br />
+<a href="http://cukes.info/">More info ...</a></p>
+<h2>Install</h2>
+<pre><code>gem install cucumber</code></pre>
+<h2>Example</h2>
+<pre><code>cucumber features</code></pre>
+<p>will execute the following cucumber feature ...</p>
+<p><strong>features/example.feature</strong><br />
+[code language="ruby"]<br />
+Feature: Search In order to use Google users must be able to search for content<br />
+  Scenario: Search for a term<br />
+    Given I have entered &quot;watir&quot; into the query<br />
+    When I click &quot;search&quot;<br />
+    Then I should see some results<br />
+[/code]</p>
+<p><strong>features/step_definitions/example_steps.rb</strong><br />
+[code language="ruby"]<br />
+require &quot;watir-webdriver&quot;<br />
+require &quot;rspec/expectations&quot;</p>
+<p>Given /^I have entered &quot;([^&quot;]*)&quot; into the query$/ do |term|<br />
+  @browser ||= Watir::Browser.new :firefox<br />
+  @browser.goto &quot;google.com&quot;<br />
+  @browser.text_field(:name =&gt; &quot;q&quot;).set term<br />
+end</p>
+<p>When /^I click &quot;([^&quot;]*)&quot;$/ do |button_name|<br />
+  @browser.button.click<br />
+end</p>
+<p>Then /^I should see some results$/ do<br />
+  @browser.div(:id =&gt; &quot;resultStats&quot;).wait_until_present<br />
+  @browser.div(:id =&gt; &quot;resultStats&quot;).should exist<br />
+  @browser.close<br />
+end<br />
+[/code]</p>
+<h1 id="test_unit">Test::Unit</h1>
+<p>Test::Unit is a framework for unit testing in Ruby, helping you to design, debug and evaluate your code by making it easy to write and have tests for it. The following code demonstrates using Watir and a basic Test::Unit example.<br />
+<a href="http://test-unit.rubyforge.org/test-unit/Test/Unit.html">More info ...</a></p>
+<h2>Install</h2>
+<p>Test::Unit already comes bundled with most ruby installations.</p>
+<h2>Example</h2>
+<pre><code>ruby example_test.rb</code></pre>
+<p>will execute the following test case ...</p>
+<p><strong>example_test.rb</strong><br />
+[code language="ruby"]<br />
+require &quot;rubygems&quot;<br />
+require &quot;test/unit&quot;<br />
+require &quot;watir-webdriver&quot;</p>
+<p>class GoogleSearch &lt; Test::Unit::TestCase<br />
+  def setup<br />
+    @browser ||= Watir::Browser.new :firefox<br />
+  end </p>
+<p>  def teardown<br />
+    @browser.close<br />
+  end</p>
+<p>  def test_search<br />
+    @browser.goto &quot;google.com&quot;<br />
+    @browser.text_field(:name =&gt; &quot;q&quot;).set &quot;watir&quot;<br />
+    @browser.button.click<br />
+    @browser.div(:id =&gt; &quot;resultStats&quot;).wait_until_present<br />
+    assert @browser.title == &quot;watir - Google Search&quot;<br />
+  end<br />
+end<br />
+[/code]</p>
+<h1 id="watirgrid"></h1>

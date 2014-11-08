@@ -1,0 +1,87 @@
+---
+layout: post
+title: 'Alister Scott on: ''Cucumber: imperative or declarative? that is the question'''
+date: 2010-12-10 09:42:09.000000000 +01:00
+categories:
+- Blogs
+tags:
+- ATDD
+- Cucumber
+- Declarative
+- Imperative
+- RSpec
+- Ruby
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '27048'
+  _wp_old_slug: ''
+  _wpas_done_twitter: '1'
+  reddit: a:2:{s:5:"count";i:0;s:4:"time";i:1405196708;}
+  _oembed_0945c28cab4d10e06a54e8ba3248a7f9: "{{unknown}}"
+author: 
+---
+<p><strong>Guest post by <a href="http://watirmelon.com">Alister Scott</a></strong></p>
+<hr />
+<p>I've recently been putting some amount of thought into how to write good Cucumber features. One the reasons I love Cucumber so much is its language focus; meaning it makes you think about things like <a href="http://en.wikipedia.org/wiki/Sentence_function">sentence function</a> more than other testing frameworks I have used. One element of sentence function usage in Cucumber that's important is whether you should write <em>imperative</em> (communicative) or <em>declarative </em>(informative) sentences for your steps. I'll provide a couple of examples to show the differences.</p>
+<p><strong>An imperative (communicative) Cucumber scenario</strong></p>
+<p>[sourcecode language="text"]<br />
+Scenario: Submit the form with correct data (imperative)<br />
+  Given I am on the watir example form<br />
+  When I set &quot;What is your name?&quot; to &quot;Alister&quot;<br />
+  And I set &quot;What is your story?&quot; to &quot;I like ruby&quot;<br />
+  And I set &quot;What testing tool do you like?&quot; to &quot;Watir&quot;<br />
+  And I click &quot;Submit&quot;<br />
+  Then I should see the message &quot;Thanks! Your response has been recorded.&quot;<br />
+[/sourcecode]</p>
+<p>Each step is a command, or instruction, so it's pretty clear what is being done.</p>
+<p><strong>A declarative (informative) Cucumber scenario</strong></p>
+<p>[sourcecode language="text"]<br />
+Scenario: Submit the form with correct data (declarative)<br />
+  Given I am on the watir example form<br />
+  When I submit the form with correct data<br />
+  Then I should see the correct message<br />
+[/sourcecode]</p>
+<p>Each step states an idea, so sometimes it's not really clear precisely what is being done.</p>
+<p><strong>Imperative vs Declarative</strong></p>
+<p>There's some quite good articles about writing Cucumber features/scenarios around. One such <a href="http://benmabey.com/2008/05/19/imperative-vs-declarative-scenarios-in-user-stories.html">article</a> that stood out to me was written in May 2008 about RSpec Story Runner, and whether you should use an imperative or declarative style. The answer is, of course, it depends, but most people tend to lean towards the declarative style, just the way that a lot of programmers prefer <a href="http://en.wikipedia.org/wiki/Declarative_programming">declarative programming</a>. I am actually swinging towards imperative style cucumber features and steps; the reasons for which I will explain below.</p>
+<p><strong>Running Imperative Features gives you richer output</strong></p>
+<p>With the two examples above, I have kinda cheated, in that the step definitions for the declarative style calls imperative steps. For example, this is the declarative step defintion:</p>
+<p>[sourcecode language="ruby"]<br />
+When /^I submit the form with correct data$/ do<br />
+  When &quot;I set \&quot;What is your name?\&quot; to \&quot;Alister\&quot;&quot;<br />
+  And &quot;I set \&quot;What is your story?\&quot; to \&quot;I like ruby\&quot;&quot;<br />
+  And &quot;I set \&quot;What testing tool do you like?\&quot; to \&quot;Watir\&quot;&quot;<br />
+  And &quot;I click \&quot;Submit\&quot;&quot;<br />
+end<br />
+[/sourcecode]</p>
+<p>This is all well and good, as you can now have multiple cucumber steps that call the same thing, it's <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>ish, but the problem is when you run the step "When I submit the form with correct data", that's all you get.</p>
+<p><a href="http://watirmelon.files.wordpress.com/2010/12/declarative-results.png"><img class="alignleft size-full wp-image-563" title="declarative results" src="assets/declarative-results.png" alt="" width="640" height="156" /></a></p>
+<p>Compare this to the imperative step results, which whilst calling exactly the same code, give you a lot more richness.</p>
+<p><a href="http://watirmelon.files.wordpress.com/2010/12/imperative-results.png"><img class="alignleft size-full wp-image-564" title="imperative results" src="assets/imperative-results.png" alt="" width="640" height="167" /></a></p>
+<p><strong>Writing imperative scenarios allow you to utilise things advanced cucumber functionality</strong></p>
+<p>Two table based Cucumber features I like using are <a href="https://github.com/aslakhellesoy/cucumber/wiki/scenario-outlines">scenario outlines</a>, and <a href="https://github.com/aslakhellesoy/cucumber/wiki/multiline-step-arguments">multiline step arguments</a>, but these don't make a lot of sense if you're using a declarative style.<br />
+For example, the imperative scenario could be easily adapted to use a scenario outline, whereas the declarative style would mean writing more declarative steps.</p>
+<p>[sourcecode language="text"]<br />
+Scenario Outline: Submit the form with correct data (imperative - outline)<br />
+  Given I am on the watir example form<br />
+  When I set &quot;What is your name?&quot; to &quot;&quot;<br />
+  And I set &quot;What is your story?&quot; to &quot;&quot;<br />
+  And I set &quot;What testing tool do you like?&quot; to &quot;&quot;<br />
+  And I click &quot;Submit&quot;<br />
+  Then I should see the message &quot;Thanks! Your response has been recorded.&quot;</p>
+<p>  Examples:<br />
+   | name    | story       | tool     |<br />
+   | Alister | I Like ruby | Watir    |<br />
+   | Mozart  | I like java | Selenium |<br />
+[/sourcecode]</p>
+<p><strong>Writing declarative scenarios often means hidden detail</strong></p>
+<p>As you move to more and more declarative scenarios, more and more details become hidden in cucumber step definitions and library code. As <a href="http://www.software-testing.com.au/blog/2010/08/31/does-cucumber-suck/comment-page-1/#comment-1153">Rasmus pointed out</a> on Jared Quinert's blog on <a href="http://www.software-testing.com.au/blog/2010/08/31/does-cucumber-suck/">does Cucumber suck</a>:</p>
+<blockquote><p>...tests end up looking like the <em>one test to rule them all</em>™:<br />
+Given everything is set up<br />
+When I submit correct data<br />
+Then everything should be OK</p></blockquote>
+<p><strong>Summary</strong></p>
+<p>To wrap up, I'm not saying don't go declarative, what I am saying is that you lose certain things in Cucumber when you do, but whether this is a big deal or not depends on what you're trying to get out of it. In the meantime, I'll continue to experiment and see what works and what doesn't.</p>
+<p>Original article: <a href="http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/">http://watirmelon.com/2010/12/10/cucumber-imperative-or-declarative-that-is-the-question/</a></p>

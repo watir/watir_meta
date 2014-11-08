@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>OpenQA, RIP (2006 - 2013)</title>
+</head>
+
+<body>
+
+<h1>Looking for an OpenQA project?</h1>
+
+<p>
+    Unfortunately, OpenQA has seen its final days. Started originally by some of the great minds of open source
+    test automation, it had a great run and supported some of the best open source test automation projects out there:
+</p>
+
+<ul>
+    <li><a href="http://docs.seleniumhq.org">Selenium</a></li>
+    <li><a href="http://watir.com/">Watir</a></li>
+    <li>Session Tester</li>
+    <li>Pylot</li>
+    <li>Floyd</li>
+    <li>pyWinAuto</li>
+    <li>Frankenstein</li>
+    <li>Watir Recorder</li>
+    <li>WET</li>
+    <li>JTC</li>
+</ul>
+
+<p>
+    Some of these projects have moved on: <a href="http://docs.seleniumhq.org">Selenium</a> and <a href="http://watir.com/">Watir</a> survive as a standalone projects while others have evolved in to new efforts and have found new homes. But others have been left stagnant for years and were unfairly misleading to users, giving the impression that they were viable projects even though no one had been involved in years.
+</p>
+
+<p>
+    Rather than continue to mislead developers about the state of the projects, we've decided to lay it all out there
+    and hope that the interesting projects will eventually get forked and live again on another site such as <a
+        href="http://code.google.com/">Google Code</a>, <a href="https://github.com/">Github</a>, or <a
+        href="https://bitbucket.org/">Bitbucket</a>.
+</p>
+
+<h1>So what now?</h1>
+
+<p>
+    If you're looking for information on the following projects, you can find more information at it's new home:
+</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Project</th>
+        <th>New Home</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Selenium</td>
+        <td><a href="http://docs.seleniumhq.org">http://docs.seleniumhq.org/</a></td>
+    </tr>
+    <tr>
+        <td>Watir</td>
+        <td><a href="http://watir.com/">http://watir.com/</a></td>
+    </tr>
+    <tr>
+        <td>CubicTest</td>
+        <td><a href="http://www.cubictest.org/">http://www.cubictest.org/</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<p>
+    If you're looking for information on a project not listed, that means it's not actively maintained. That doesn't
+    mean the project is useless, it just means no one runs it right now. But some projects are still certainly useful,
+    so
+    the following may help you better use it.
+</p>
+
+<h2>Project Websites</h2>
+
+<p>
+    We recommend using the Internet Archive Wayback Machine to browse around the old project sites, which are no longer
+    hosted here. Follow <a href="http://web.archive.org/web/20130614113118/http://openqa.org/">this link</a>
+    to see what the site looked like in June, 2013.
+</p>
+
+<h2>Downloads</h2>
+
+<p>
+  For older downloads, the best place to look is in the <a href="http://search.maven.org">public Maven repository</a>. Search for "openqa" or the specific project name (ie: "selenium").
+
+</p>
+
+<h2>Bug Tracker and Wiki</h2>
+
+<p>
+    Again, we recommend the Wayback Machine for the old <a
+        href="http://web.archive.org/web/20130116202849/http://jira.openqa.org/secure/Dashboard.jspa">JIRA
+    instance (bug tracker)</a> and <a href="http://web.archive.org/web/20130115080426/http://wiki.openqa.org/dashboard.action">Confluence instance (wiki)</a>.
+</p>
+
+<h1>Final Words</h1>
+
+<p>
+    While it's sad to finally put OpenQA to bed, we hope this announcement at least gives clarity on the status of
+    the projects. If you have questions that aren't answered on this page, you can email <a
+        href="mailto:openqa@lightbody.net">openqa@lightbody.net</a> but we can't
+    guarantee that we can answer your question. We will try to keep this page updated with more information as it comes
+    up.
+</p>
+
+</body>
+</html>
